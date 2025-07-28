@@ -2,6 +2,21 @@
 // See: https://next-intl.dev/docs/workflows/typescript#messages-arguments
 
 declare const messages: {
-    "title": "Next.js Template"
+    "title": "Useful Dev Tools",
+    "sidebar": {
+        "appName": "Useful Dev Tools",
+        "navigation": "Navigation",
+        "welcome": "Welcome to Useful Dev Tools"
+    },
+    "pages": {
+        "home": "Home",
+        "uuid": "UUID",
+        "regex": "Regex",
+        "jwt": "JWT",
+        "hash": "Hash"
+    },
+    "themeToggle": {
+        "toggleTheme": "Toggle Theme"
+    }
 };
 export default messages;
