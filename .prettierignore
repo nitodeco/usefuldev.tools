@@ -1,0 +1,7 @@
+**/node_modules/
+pnpm-lock.yaml
+.next/
+.vercel/
+**/public/
+**/components/ui/
+src/messages/*.d.json.ts

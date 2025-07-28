@@ -1,0 +1,56 @@
+name: Pull Request
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, reopened, synchronize]
+
+jobs:
+  checks:
+    name: Build, Linting and Testing
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      packages: write
+      checks: write
+      contents: write
+      pull-requests: write
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.event.pull_request.number }}-checks
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.12.1
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile]
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.16.0
+          cache: 'pnpm'
+
+      - name: Build
+        id: turbo
+        run: |
+          set +e
+          pnpm build
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+        continue-on-error: true
+
+      - name: Run ESLint
+        run: pnpm lint
+
+      - name: Run Vitest
+        continue-on-error: true
+        if: always()
+        run: pnpm test
+
+      - name: Fail job if build failed
+        if: ${{ steps.turbo.outputs.exit_code != '0' }}
+        run: exit 1
