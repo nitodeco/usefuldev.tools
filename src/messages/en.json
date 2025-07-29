@@ -7,10 +7,10 @@
     },
     "pages": {
         "home": "Home",
-        "uuid": "UUID",
-        "regex": "Regex",
-        "jwt": "JWT",
-        "hash": "Hash"
+        "uuid": "UUID Generator",
+        "regex": "Regex Tester",
+        "jwt": "JWT Decoder",
+        "hash": "Hash Generator"
     },
     "themeToggle": {
         "toggleTheme": "Toggle Theme"
@@ -18,21 +18,30 @@
     "uuid": {
         "title": "UUID Generator",
         "description": "Generate UUIDs (Universally Unique Identifiers) in different versions",
-        "version": "Version",
         "generateSingle": "Generate UUID",
-        "copyToClipboard": "Copy to clipboard",
-        "copiedSuccess": "Copied to clipboard!",
         "generatedUuids": "Generated UUID",
         "selectVersion": "Select UUID version",
-        "generatorSettings": "Generator Settings",
-        "generatorDescription": "Configure your UUID generation preferences",
-        "copy": "Copy",
-        "generatedAt": "Generated at {timestamp}",
         "versions": {
             "v1": "Version 1 (Time-based)",
             "v4": "Version 4 (Random)",
             "v6": "Version 6 (Reordered time)",
             "v7": "Version 7 (Unix timestamp)"
         }
+    },
+    "regex": {
+        "title": "Regex Validator",
+        "description": "Validate and test regular expressions with real-time feedback",
+        "regexPattern": "Regex Pattern",
+        "testString": "Test String",
+        "validRegex": "Valid",
+        "invalidRegex": "Invalid",
+        "regexPlaceholder": "^[a-zA-Z0-9]+$",
+        "testStringPlaceholder": "Enter text to test against regex",
+        "testNoMatch": "No match",
+        "fullMatch": "Full match",
+        "partialMatch": "Partial match",
+        "noTestString": "No test string provided",
+        "matchingCharacters": "Matching characters",
+        "nonMatchingCharacters": "Non-matching characters"
     }
 }
