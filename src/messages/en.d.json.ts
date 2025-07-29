@@ -32,7 +32,7 @@ declare const messages: {
     },
     "home": {
         "title": "Useful Developer Tools",
-        "description": "A collection of useful development tools to boost your productivity",
+        "description": "A set of useful, client-side tools for developers.",
         "search": {
             "placeholder": "Search tools...",
             "noResults": "No tools found matching your search"

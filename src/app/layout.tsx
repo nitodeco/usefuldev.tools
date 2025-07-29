@@ -1,13 +1,14 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages, getTranslations } from 'next-intl/server';
+import { getLocale, getMessages } from 'next-intl/server';
 
-import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
 import { ThemeToggle } from '@/components/molecules/ThemeToggle';
 import { Footer } from '@/components/organisms/Footer';
 import { Sidebar } from '@/components/organisms/Sidebar';
 import { RootProvider } from '@/components/providers/RootProvider';
+
+import { generatePageMetadata } from '@/lib/metadata';
 
 import './globals.css';
 
@@ -21,13 +22,7 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  const t = await getTranslations();
-
-  return {
-    title: t('title'),
-  };
-};
+export const generateMetadata = generatePageMetadata();
 
 export default async function RootLayout({
   children,
