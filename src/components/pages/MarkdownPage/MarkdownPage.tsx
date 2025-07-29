@@ -16,7 +16,7 @@ import { PreviewSection } from './partials/PreviewSection';
 import { useMarkdownOperations } from './partials/useMarkdownOperations';
 
 export const MarkdownPage: React.FC = () => {
-  const t = useTranslations('markdown');
+  const t = useTranslations('tools.markdown');
   const [copiedMarkdown, setCopiedMarkdown] = useState(false);
   const [copiedHtml, setCopiedHtml] = useState(false);
 
@@ -33,11 +33,13 @@ export const MarkdownPage: React.FC = () => {
 
   const handleCopyMarkdown = () => {
     const textToCopy = mode === 'html-to-markdown' ? convertedOutput : markdownInput;
+
     copyToClipboard(textToCopy, setCopiedMarkdown);
   };
 
   const handleCopyHtml = () => {
     const textToCopy = mode === 'markdown-to-html' ? convertedOutput : htmlInput;
+
     copyToClipboard(textToCopy, setCopiedHtml);
   };
 

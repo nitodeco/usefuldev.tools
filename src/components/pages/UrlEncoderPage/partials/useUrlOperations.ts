@@ -19,13 +19,13 @@ export const useUrlOperations = () => {
 
     try {
       let output: string;
-      
+
       if (mode === 'encode') {
         output = useComponentEncoding ? encodeUrl(input) : encodeUrlSpecialChars(input);
       } else {
         output = useComponentEncoding ? decodeUrl(input) : decodeUrlSpecialChars(input);
       }
-      
+
       return {
         output,
         isValid: true,

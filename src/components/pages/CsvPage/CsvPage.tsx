@@ -9,19 +9,9 @@ import { CsvOutputSection } from './partials/CsvOutputSection';
 import { useCsvOperations } from './partials/useCsvOperations';
 
 export const CsvPage: React.FC = () => {
-  const t = useTranslations('csv');
-  const {
-    mode,
-    setMode,
-    inputText,
-    setInputText,
-    outputText,
-    options,
-    setOptions,
-    error,
-    clearAll,
-    downloadOutput,
-  } = useCsvOperations();
+  const t = useTranslations('tools.csv');
+  const { mode, setMode, inputText, setInputText, outputText, options, setOptions, error, clearAll, downloadOutput } =
+    useCsvOperations();
 
   return (
     <div className='container mx-auto p-6 max-w-4xl space-y-8'>

@@ -26,7 +26,7 @@ describe('URL Encoder/Decoder', () => {
 
     it('should encode URL reserved characters', () => {
       expect(encodeUrl('https://example.com/path?query=value')).toBe(
-        'https%3A%2F%2Fexample.com%2Fpath%3Fquery%3Dvalue'
+        'https%3A%2F%2Fexample.com%2Fpath%3Fquery%3Dvalue',
       );
     });
   });
@@ -61,7 +61,7 @@ describe('URL Encoder/Decoder', () => {
   describe('encodeUrlSpecialChars', () => {
     it('should preserve URL structure', () => {
       expect(encodeUrlSpecialChars('https://example.com/path?query=value')).toBe(
-        'https://example.com/path?query=value'
+        'https://example.com/path?query=value',
       );
     });
 
@@ -102,7 +102,7 @@ describe('URL Encoder/Decoder', () => {
 
     it('should handle URLs with query parameters', () => {
       expect(decodeUrlSpecialChars('https://example.com/path?query=hello%20world')).toBe(
-        'https://example.com/path?query=hello world'
+        'https://example.com/path?query=hello world',
       );
     });
 

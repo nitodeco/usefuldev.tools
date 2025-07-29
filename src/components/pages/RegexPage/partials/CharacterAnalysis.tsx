@@ -47,7 +47,7 @@ export const CharacterAnalysis: React.FC<CharacterAnalysisProps> = ({ testString
 };
 
 const CharacterLegend: React.FC = () => {
-  const t = useTranslations('regex');
+  const t = useTranslations('tools.regex');
 
   return (
     <div className='flex items-center gap-6 text-sm'>

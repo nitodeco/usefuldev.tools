@@ -42,7 +42,7 @@ export const Base64InputSection: React.FC<Base64InputSectionProps> = ({
   onClearAll,
   formatFileSize,
 }) => {
-  const t = useTranslations('base64');
+  const t = useTranslations('tools.base64');
 
   const modes: { value: Base64Mode; label: string }[] = [
     { value: 'encode', label: t('modes.encode') },

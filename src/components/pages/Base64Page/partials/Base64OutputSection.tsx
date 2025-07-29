@@ -33,7 +33,7 @@ export const Base64OutputSection: React.FC<Base64OutputSectionProps> = ({
   fileInfo,
   onDownloadFile,
 }) => {
-  const t = useTranslations('base64');
+  const t = useTranslations('tools.base64');
   const [copied, setCopied] = useState<boolean>(false);
 
   if (!outputText && !error) {

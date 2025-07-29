@@ -37,12 +37,10 @@ export const useCsvOperations = () => {
           return;
         }
 
-        const jsonOutput = options.prettyPrint
-          ? JSON.stringify(result.data, null, 2)
-          : JSON.stringify(result.data);
-        
+        const jsonOutput = options.prettyPrint ? JSON.stringify(result.data, null, 2) : JSON.stringify(result.data);
+
         setOutputText(jsonOutput);
-        
+
         posthog.capture('csv_to_json_converted', {
           input_length: inputText.length,
           output_length: jsonOutput.length,
@@ -51,7 +49,7 @@ export const useCsvOperations = () => {
         });
       } else {
         const jsonData = JSON.parse(inputText);
-        
+
         if (!Array.isArray(jsonData)) {
           throw new Error('Input must be a JSON array');
         }
@@ -59,9 +57,9 @@ export const useCsvOperations = () => {
         const csv = Papa.unparse(jsonData, {
           header: options.hasHeader,
         });
-        
+
         setOutputText(csv);
-        
+
         posthog.capture('json_to_csv_converted', {
           input_length: inputText.length,
           output_length: csv.length,

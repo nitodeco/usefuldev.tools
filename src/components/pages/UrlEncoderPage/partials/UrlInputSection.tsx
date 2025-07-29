@@ -26,7 +26,7 @@ export const UrlInputSection: React.FC<UrlInputSectionProps> = ({
   useComponentEncoding,
   onEncodingTypeChange,
 }) => {
-  const t = useTranslations('urlEncoder');
+  const t = useTranslations('tools.urlEncoder');
 
   const modes: { value: ConversionMode; label: string }[] = [
     { value: 'encode', label: t('modes.encode') },

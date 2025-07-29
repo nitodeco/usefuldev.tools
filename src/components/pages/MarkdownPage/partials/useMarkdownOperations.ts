@@ -1,5 +1,7 @@
-import { useState, useCallback, useEffect } from 'react';
-import { markdownToHtml, htmlToMarkdown } from '@/lib/markdown';
+import { useCallback, useEffect, useState } from 'react';
+
+import { htmlToMarkdown, markdownToHtml } from '@/lib/markdown';
+
 import { ConversionMode } from '../types';
 
 export const useMarkdownOperations = () => {
@@ -8,34 +10,47 @@ export const useMarkdownOperations = () => {
   const [mode, setMode] = useState<ConversionMode>('markdown-to-html');
   const [convertedOutput, setConvertedOutput] = useState<string>('');
 
-  const handleMarkdownChange = useCallback((value: string) => {
-    setMarkdownInput(value);
-    if (mode === 'markdown-to-html') {
-      const html = markdownToHtml(value);
-      setConvertedOutput(html);
-    }
-  }, [mode]);
+  const handleMarkdownChange = useCallback(
+    (value: string) => {
+      setMarkdownInput(value);
+      if (mode === 'markdown-to-html') {
+        const html = markdownToHtml(value);
 
-  const handleHtmlChange = useCallback((value: string) => {
-    setHtmlInput(value);
-    if (mode === 'html-to-markdown') {
-      const markdown = htmlToMarkdown(value);
-      setConvertedOutput(markdown);
-    }
-  }, [mode]);
+        setConvertedOutput(html);
+      }
+    },
+    [mode],
+  );
 
-  const handleModeChange = useCallback((newMode: ConversionMode) => {
-    setMode(newMode);
-    setConvertedOutput('');
-    
-    if (newMode === 'markdown-to-html' && markdownInput) {
-      const html = markdownToHtml(markdownInput);
-      setConvertedOutput(html);
-    } else if (newMode === 'html-to-markdown' && htmlInput) {
-      const markdown = htmlToMarkdown(htmlInput);
-      setConvertedOutput(markdown);
-    }
-  }, [markdownInput, htmlInput]);
+  const handleHtmlChange = useCallback(
+    (value: string) => {
+      setHtmlInput(value);
+      if (mode === 'html-to-markdown') {
+        const markdown = htmlToMarkdown(value);
+
+        setConvertedOutput(markdown);
+      }
+    },
+    [mode],
+  );
+
+  const handleModeChange = useCallback(
+    (newMode: ConversionMode) => {
+      setMode(newMode);
+      setConvertedOutput('');
+
+      if (newMode === 'markdown-to-html' && markdownInput) {
+        const html = markdownToHtml(markdownInput);
+
+        setConvertedOutput(html);
+      } else if (newMode === 'html-to-markdown' && htmlInput) {
+        const markdown = htmlToMarkdown(htmlInput);
+
+        setConvertedOutput(markdown);
+      }
+    },
+    [markdownInput, htmlInput],
+  );
 
   const clearAll = useCallback(() => {
     setMarkdownInput('');
@@ -46,9 +61,11 @@ export const useMarkdownOperations = () => {
   useEffect(() => {
     if (mode === 'markdown-to-html' && markdownInput) {
       const html = markdownToHtml(markdownInput);
+
       setConvertedOutput(html);
     } else if (mode === 'html-to-markdown' && htmlInput) {
       const markdown = htmlToMarkdown(htmlInput);
+
       setConvertedOutput(markdown);
     }
   }, [mode, markdownInput, htmlInput]);

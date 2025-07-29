@@ -34,7 +34,7 @@ export const CsvInputSection: React.FC<CsvInputSectionProps> = ({
   error,
   onClearAll,
 }) => {
-  const t = useTranslations('csv');
+  const t = useTranslations('tools.csv');
 
   const placeholder =
     mode === 'csv-to-json'

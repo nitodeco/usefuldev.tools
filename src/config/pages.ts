@@ -1,23 +1,13 @@
-import {
-  CodeIcon,
-  FileIcon,
-  HashIcon,
-  LinkIcon,
-  LucideIcon,
-  RectangleEllipsis,
-  RectangleEllipsisIcon,
-  RegexIcon,
-  Table2Icon,
-} from 'lucide-react';
+import { CodeIcon, HashIcon, LinkIcon, LucideIcon, RectangleEllipsisIcon, RegexIcon, Table2Icon } from 'lucide-react';
 
 export type FilterCategory = 'all' | 'cryptography' | 'generators' | 'testing' | 'converters';
 
-export interface Page {
+export type Page = {
   key: string;
   href: string;
   icon?: LucideIcon;
   category: FilterCategory;
-}
+};
 
 export const pages: Page[] = [
   {

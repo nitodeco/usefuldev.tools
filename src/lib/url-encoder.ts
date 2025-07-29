@@ -2,7 +2,7 @@ export const encodeUrl = (input: string): string => {
   if (!input) {
     return '';
   }
-  
+
   try {
     return encodeURIComponent(input);
   } catch (_error) {
@@ -14,7 +14,7 @@ export const decodeUrl = (input: string): string => {
   if (!input) {
     return '';
   }
-  
+
   try {
     return decodeURIComponent(input);
   } catch (_error) {
@@ -26,7 +26,7 @@ export const encodeUrlSpecialChars = (input: string): string => {
   if (!input) {
     return '';
   }
-  
+
   try {
     return encodeURI(input);
   } catch (_error) {
@@ -38,7 +38,7 @@ export const decodeUrlSpecialChars = (input: string): string => {
   if (!input) {
     return '';
   }
-  
+
   try {
     return decodeURI(input);
   } catch (_error) {

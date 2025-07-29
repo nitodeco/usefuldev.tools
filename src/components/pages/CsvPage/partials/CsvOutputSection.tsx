@@ -18,7 +18,7 @@ interface CsvOutputSectionProps {
 }
 
 export const CsvOutputSection: React.FC<CsvOutputSectionProps> = ({ outputText, onDownload }) => {
-  const t = useTranslations('csv');
+  const t = useTranslations('tools.csv');
   const [copied, setCopied] = useState<boolean>(false);
 
   return (

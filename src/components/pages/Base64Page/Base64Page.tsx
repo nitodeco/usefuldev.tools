@@ -9,7 +9,7 @@ import { Base64OutputSection } from './partials/Base64OutputSection';
 import { useBase64Operations } from './partials/useBase64Operations';
 
 export const Base64Page: React.FC = () => {
-  const t = useTranslations('base64');
+  const t = useTranslations('tools.base64');
   const {
     mode,
     setMode,

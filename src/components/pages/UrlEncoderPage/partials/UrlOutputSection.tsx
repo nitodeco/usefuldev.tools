@@ -13,7 +13,7 @@ interface UrlOutputSectionProps {
 }
 
 export const UrlOutputSection: React.FC<UrlOutputSectionProps> = ({ result }) => {
-  const t = useTranslations('urlEncoder');
+  const t = useTranslations('tools.urlEncoder');
   const [copied, setCopied] = useState<boolean>(false);
 
   if (!result.result.output && !result.result.error) {

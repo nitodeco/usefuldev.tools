@@ -17,7 +17,7 @@ import { copyToClipboard } from '@/lib/copy';
 import { UuidVersion } from './types';
 
 export const UuidPage: React.FC = () => {
-  const t = useTranslations('uuid');
+  const t = useTranslations('tools.uuid');
   const [selectedVersion, setSelectedVersion] = useState<UuidVersion>('v4');
   const [generatedUuid, setGeneratedUuid] = useState<string>('');
   const [copied, setCopied] = useState<boolean>(false);

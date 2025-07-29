@@ -1,17 +1,8 @@
-import { getTranslations } from 'next-intl/server';
-
-import type { Metadata } from 'next';
-
 import { MarkdownPage } from '@/components/pages/MarkdownPage';
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  const t = await getTranslations('markdown');
+import { generatePageMetadata } from '@/lib/metadata';
 
-  return {
-    title: `${t('title')} - Useful Dev Tools`,
-    description: t('description'),
-  };
-};
+export const generateMetadata = generatePageMetadata({ page: 'markdown' });
 
 export default function MarkdownPageRoute() {
   return <MarkdownPage />;

@@ -8,8 +8,6 @@ import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/ca
 
 import { type Page } from '@/config/pages';
 
-import { ToolCategoryBadge } from './ToolCategoryBadge';
-
 export type Props = {
   page: Page;
 };
@@ -27,7 +25,6 @@ export const ToolCard: React.FC<Props> = ({ page }) => {
           <div className='flex items-start justify-between'>
             {/* @ts-expect-error */}
             <CardTitle className='text-base leading-tight'>{t(`tools.${toolKey}.title`)}</CardTitle>
-            {category && <ToolCategoryBadge category={category} />}
           </div>
           <CardDescription className='text-sm leading-tight line-clamp-2'>
             {/* @ts-expect-error */}

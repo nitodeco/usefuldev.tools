@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
-import { Search } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
 
 import { type FilterCategory, filterOptions, pages } from '@/config/pages';
 

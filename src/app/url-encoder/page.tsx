@@ -1,17 +1,8 @@
-import { getTranslations } from 'next-intl/server';
-
-import type { Metadata } from 'next';
-
 import { UrlEncoderPage } from '@/components/pages/UrlEncoderPage';
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  const t = await getTranslations('urlEncoder');
+import { generatePageMetadata } from '@/lib/metadata';
 
-  return {
-    title: `${t('title')} - Useful Dev Tools`,
-    description: t('description'),
-  };
-};
+export const generateMetadata = generatePageMetadata({ page: 'urlEncoder' });
 
 export default function UrlEncoderPageRoute() {
   return <UrlEncoderPage />;

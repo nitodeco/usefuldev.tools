@@ -9,7 +9,7 @@ import { UrlOutputSection } from './partials/UrlOutputSection';
 import { useUrlOperations } from './partials/useUrlOperations';
 
 export const UrlEncoderPage: React.FC = () => {
-  const t = useTranslations('urlEncoder');
+  const t = useTranslations('tools.urlEncoder');
   const { input, setInput, mode, setMode, useComponentEncoding, setUseComponentEncoding, result } = useUrlOperations();
 
   return (

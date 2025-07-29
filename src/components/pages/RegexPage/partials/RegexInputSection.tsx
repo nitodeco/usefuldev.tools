@@ -19,7 +19,7 @@ export const RegexInputSection: React.FC<RegexInputSectionProps> = ({
   isValid,
   error,
 }) => {
-  const t = useTranslations('regex');
+  const t = useTranslations('tools.regex');
 
   return (
     <div className='space-y-4'>

@@ -21,7 +21,7 @@ import { copyToClipboard } from '@/lib/copy';
 import { HashAlgorithm } from './types';
 
 export const HashingPage: React.FC = () => {
-  const t = useTranslations('hash');
+  const t = useTranslations('tools.hash');
   const [selectedAlgorithm, setSelectedAlgorithm] = useState<HashAlgorithm>('sha256');
   const [inputText, setInputText] = useState<string>('');
   const [hashedValue, setHashedValue] = useState<string>('');

@@ -1,17 +1,8 @@
-import { getTranslations } from 'next-intl/server';
-
-import type { Metadata } from 'next';
-
 import { HashingPage } from '@/components/pages/HashingPage';
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  const t = await getTranslations('hash');
+import { generatePageMetadata } from '@/lib/metadata';
 
-  return {
-    title: `${t('title')} - Useful Dev Tools`,
-    description: t('description'),
-  };
-};
+export const generateMetadata = generatePageMetadata({ page: 'hash' });
 
 export default function HashPageRoute() {
   return <HashingPage />;

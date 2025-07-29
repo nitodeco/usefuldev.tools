@@ -12,7 +12,7 @@ export type Props = {
 };
 
 export const MarkdownModeSelect: React.FC<Props> = ({ mode, handleModeChange }) => {
-  const t = useTranslations('markdown');
+  const t = useTranslations('tools.markdown');
 
   return (
     <Select value={mode} onValueChange={(value: ConversionMode) => handleModeChange(value)}>

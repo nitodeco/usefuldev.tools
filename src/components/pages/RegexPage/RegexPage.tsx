@@ -10,7 +10,7 @@ import { TestInputSection } from './partials/TestInputSection';
 import { useRegexValidation } from './partials/useRegexValidation';
 
 export const RegexPage: React.FC = () => {
-  const t = useTranslations('regex');
+  const t = useTranslations('tools.regex');
   const { regexPattern, setRegexPattern, testString, setTestString, validationResult } = useRegexValidation();
 
   return (

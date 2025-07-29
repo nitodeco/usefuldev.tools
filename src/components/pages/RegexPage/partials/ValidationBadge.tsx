@@ -21,7 +21,7 @@ interface TestResultBadgeProps {
 }
 
 export const ValidationBadge: React.FC<ValidationBadgeProps> = ({ isValid }) => {
-  const t = useTranslations('regex');
+  const t = useTranslations('tools.regex');
 
   if (isValid === null) return null;
 
@@ -51,7 +51,7 @@ export const ValidationBadge: React.FC<ValidationBadgeProps> = ({ isValid }) => 
 };
 
 export const TestResultBadge: React.FC<TestResultBadgeProps> = ({ testMatches, isValidRegex, hasTestString }) => {
-  const t = useTranslations('regex');
+  const t = useTranslations('tools.regex');
 
   if (!isValidRegex || !hasTestString || testMatches === null) return null;
 
