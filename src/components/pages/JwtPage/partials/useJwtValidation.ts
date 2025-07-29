@@ -2,6 +2,12 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { Algorithm, DecodedJwt, JwtEncodingResult, JwtValidationResult } from '../types';
 
+const base64UrlDecode = (str: string): string => {
+  const base64 = str.replace(/-/g, '+').replace(/_/g, '/');
+  const padding = '='.repeat((4 - (base64.length % 4)) % 4);
+  return atob(base64 + padding);
+};
+
 export const useJwtValidation = () => {
   const [jwtToken, setJwtToken] = useState<string>('');
   const [secret, setSecret] = useState<string>('');
@@ -13,7 +19,6 @@ export const useJwtValidation = () => {
 }`);
   const [algorithm, setAlgorithm] = useState<Algorithm>('HS256');
   const [validationResult, setValidationResult] = useState<JwtValidationResult>({ isValid: false });
-  const [encodingResult, setEncodingResult] = useState<JwtEncodingResult>({});
 
   const decodeJwt = useCallback((token: string): JwtValidationResult => {
     if (!token) {
@@ -26,8 +31,8 @@ export const useJwtValidation = () => {
         return { isValid: false, error: 'Invalid JWT format' };
       }
 
-      const header = JSON.parse(atob(parts[0]));
-      const payload = JSON.parse(atob(parts[1]));
+      const header = JSON.parse(base64UrlDecode(parts[0]));
+      const payload = JSON.parse(base64UrlDecode(parts[1]));
       const signature = parts[2];
 
       const result: DecodedJwt = {
@@ -108,8 +113,6 @@ export const useJwtValidation = () => {
     algorithm,
     setAlgorithm,
     validationResult,
-    encodingResult,
     encodeJwt,
-    setEncodingResult,
   };
 };
