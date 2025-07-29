@@ -14,68 +14,13 @@ declare const messages: {
         "description": "The page you are looking for does not exist.",
         "returnHome": "Return Home"
     },
-    "footer": {
-        "github": "View on GitHub",
-        "coffee": "Buy me a coffee",
-        "copyright": "Copyright © {year} Nico Möhn"
-    },
     "pages": {
         "home": "Home",
         "uuid": "UUID Generator",
         "regex": "Regex Tester",
         "jwt": "JWT Decoder",
         "hash": "Hash Generator",
-        "markdown": "Markdown Converter",
-        "csv": "CSV/JSON Converter",
-        "base64": "Base64 Converter"
-    },
-    "home": {
-        "title": "Useful Developer Tools",
-        "description": "A collection of useful development tools to boost your productivity",
-        "search": {
-            "placeholder": "Search tools...",
-            "noResults": "No tools found matching your search"
-        },
-        "filters": {
-            "all": "All Tools",
-            "cryptography": "Cryptography",
-            "generators": "Generators",
-            "testing": "Testing",
-            "converters": "Converters"
-        },
-        "tools": {
-            "uuid": {
-                "title": "UUID Generator",
-                "description": "Generate unique identifiers for your applications",
-                "category": "generators"
-            },
-            "regex": {
-                "title": "Regex Tester",
-                "description": "Test and validate regular expressions with real-time feedback",
-                "category": "testing"
-            },
-            "hash": {
-                "title": "Hash Generator",
-                "description": "Generate cryptographic hashes using various algorithms",
-                "category": "cryptography"
-            },
-            "base64": {
-                "title": "Base64 Converter",
-                "description": "Encode and decode text to/from Base64 format",
-                "category": "converters"
-            },
-            "csv": {
-                "title": "CSV/JSON Converter",
-                "description": "Convert between CSV and JSON formats easily",
-                "category": "converters"
-            },
-            "markdown": {
-                "title": "Markdown Converter",
-                "description": "Convert between Markdown and HTML in real-time",
-                "category": "converters"
-            }
-        },
-        "visitTool": "Open Tool"
+        "urlEncoder": "URL Encoder/Decoder"
     },
     "themeToggle": {
         "toggleTheme": "Toggle Theme"
@@ -126,94 +71,28 @@ declare const messages: {
             "xxhash": "xxHash"
         }
     },
-    "csv": {
-        "title": "CSV/JSON Converter",
-        "description": "Convert between CSV and JSON formats easily",
-        "mode": "Conversion Mode",
-        "csvToJson": "CSV to JSON",
-        "jsonToCsv": "JSON to CSV",
+    "urlEncoder": {
+        "title": "URL Encoder/Decoder",
+        "description": "Encode and decode URLs with support for both component and standard encoding",
         "input": "Input",
         "output": "Output",
-        "convert": "Convert",
-        "clear": "Clear",
-        "copyOutput": "Copy Output",
-        "downloadFile": "Download File",
-        "uploadFile": "Drop a file here or click to upload",
-        "inputPlaceholder": "Paste your data here...",
-        "fileInfo": "File: {{fileName}} ({{fileSize}})",
-        "options": "Options",
-        "hasHeader": "First row is header",
-        "prettyPrint": "Pretty print JSON"
-    },
-    "base64": {
-        "title": "Base64 Converter",
-        "description": "Encode and decode text and files to/from Base64 format with real-time conversion",
-        "inputText": "Input Text",
-        "outputText": "Output",
-        "mode": "Mode",
-        "inputType": "Input Type",
-        "encodePlaceholder": "Enter text to encode to Base64",
-        "decodePlaceholder": "Enter Base64 text to decode",
-        "clearAll": "Clear All",
-        "downloadFile": "Download as File",
-        "uploadFile": "Upload File",
-        "dropFile": "Drop a file here or click to browse",
-        "fileInfo": "File: {name} ({size})",
-        "supportedFormats": "Supports images, PDFs, text files, and more",
-        "output": {
-            "fileEncoded": "File Encoded",
-            "fileConverted": "File converted to Base64",
-            "base64Output": "Base64 output ({count} characters)",
-            "outputTruncated": "Output truncated for display. Use copy or download to get the full content.",
-            "copyToClipboard": "Copy to clipboard",
-            "readyForDownload": "Ready for Download",
-            "decodedFileReady": "Decoded file is ready. Click \"Download as File\" to save it."
-        },
+        "valid": "Valid",
+        "invalid": "Invalid",
+        "useComponentEncoding": "Component encoding",
         "modes": {
-            "encode": "Encode to Base64",
-            "decode": "Decode from Base64"
+            "encode": "Encode",
+            "decode": "Decode"
         },
-        "inputTypes": {
-            "text": "Text Input",
-            "file": "File Upload"
+        "inputPlaceholder": {
+            "encode": "Enter text to URL encode",
+            "decode": "Enter URL encoded text to decode"
         },
-        "errors": {
-            "fileTooBig": "File is too large (max 10MB)",
-            "fileReadError": "Error reading file",
-            "invalidBase64File": "Invalid Base64 data for file conversion"
+        "outputPlaceholder": "Result will appear here",
+        "encodingInfo": {
+            "title": "Encoding Type",
+            "component": "Component encoding (encodeURIComponent): Encodes all characters except A-Z a-z 0-9 - _ . ! ~ * ' ( )",
+            "standard": "Standard encoding (encodeURI): Preserves URL structure, only encodes unsafe characters"
         }
-    },
-    "fileUpload": {
-        "dropFile": "Drop a file here or click to browse",
-        "fileInfo": {
-            "name": "Name",
-            "size": "Size",
-            "type": "Type",
-            "lastModified": "Last Modified",
-            "unknown": "Unknown"
-        },
-        "fileSizes": {
-            "bytes": "Bytes",
-            "kb": "KB",
-            "mb": "MB",
-            "gb": "GB"
-        }
-    },
-    "markdown": {
-        "title": "Markdown Converter",
-        "description": "Convert between Markdown and HTML in real-time",
-        "markdownInput": "Markdown Input",
-        "htmlOutput": "HTML Output",
-        "markdownPlaceholder": "Enter your markdown here...",
-        "htmlPlaceholder": "Enter your HTML here...",
-        "preview": "Preview",
-        "copyMarkdown": "Copy Markdown",
-        "copyHtml": "Copy HTML",
-        "copiedToClipboard": "Copied to clipboard!",
-        "clearAll": "Clear All",
-        "conversionMode": "Conversion Mode",
-        "markdownToHtml": "Markdown to HTML",
-        "htmlToMarkdown": "HTML to Markdown"
     }
 };
 export default messages;

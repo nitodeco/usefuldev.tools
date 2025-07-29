@@ -24,7 +24,8 @@
         "hash": "Hash Generator",
         "markdown": "Markdown Converter",
         "csv": "CSV/JSON Converter",
-        "base64": "Base64 Converter"
+        "base64": "Base64 Converter",
+        "urlEncoder": "URL Encoder/Decoder"
     },
     "home": {
         "title": "Useful Developer Tools",
@@ -69,6 +70,11 @@
             "markdown": {
                 "title": "Markdown Converter",
                 "description": "Convert between Markdown and HTML in real-time",
+                "category": "converters"
+            },
+            "urlEncoder": {
+                "title": "URL Encoder/Decoder",
+                "description": "Encode and decode URLs with component or standard encoding",
                 "category": "converters"
             }
         },
@@ -211,5 +217,28 @@
         "conversionMode": "Conversion Mode",
         "markdownToHtml": "Markdown to HTML",
         "htmlToMarkdown": "HTML to Markdown"
+    },
+    "urlEncoder": {
+        "title": "URL Encoder/Decoder",
+        "description": "Encode and decode URLs with support for both component and standard encoding",
+        "input": "Input",
+        "output": "Output",
+        "valid": "Valid",
+        "invalid": "Invalid",
+        "useComponentEncoding": "Component encoding",
+        "modes": {
+            "encode": "Encode",
+            "decode": "Decode"
+        },
+        "inputPlaceholder": {
+            "encode": "Enter text to URL encode",
+            "decode": "Enter URL encoded text to decode"
+        },
+        "outputPlaceholder": "Result will appear here",
+        "encodingInfo": {
+            "title": "Encoding Type",
+            "component": "Component encoding (encodeURIComponent): Encodes all characters except A-Z a-z 0-9 - _ . ! ~ * ' ( )",
+            "standard": "Standard encoding (encodeURI): Preserves URL structure, only encodes unsafe characters"
+        }
     }
 }
