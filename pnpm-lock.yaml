@@ -53,6 +53,9 @@ importers:
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      papaparse:
+        specifier: ^5.5.3
+        version: 5.5.3
       posthog-js:
         specifier: ^1.258.2
         version: 1.258.2
@@ -102,6 +105,9 @@ importers:
       '@types/node':
         specifier: ^24.1.0
         version: 24.1.0
+      '@types/papaparse':
+        specifier: ^5.3.16
+        version: 5.3.16
       '@types/react':
         specifier: ^19.1.8
         version: 19.1.8
@@ -1450,6 +1456,9 @@ packages:
 
   '@types/node@24.1.0':
     resolution: {integrity: sha512-ut5FthK5moxFKH2T1CUOC6ctR67rQRvvHdFLCD2Ql6KXmMuCrjsSsRI9UsLCm9M18BMwClv4pn327UvB7eeO1w==}
+
+  '@types/papaparse@5.3.16':
+    resolution: {integrity: sha512-T3VuKMC2H0lgsjI9buTB3uuKj3EMD2eap1MOuEQuBQ44EnDx/IkGhU6EwiTf9zG3za4SKlmwKAImdDKdNnCsXg==}
 
   '@types/react-dom@19.1.6':
     resolution: {integrity: sha512-4hOiT/dwO8Ko0gV1m/TJZYk3y0KBnY9vzDh7W+DH17b2HFSOGgdj33dhihPeuy3l0q23+4e+hoXHV6hCC4dCXw==}
@@ -3023,6 +3032,9 @@ packages:
 
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
+
+  papaparse@5.5.3:
+    resolution: {integrity: sha512-5QvjGxYVjxO59MGU2lHVYpRWBBtKHnlIAcSe1uNFCkkptUh63NFRj0FJQm7nR67puEruUci/ZkjmEFrjCAyP4A==}
 
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
@@ -5007,6 +5019,10 @@ snapshots:
     dependencies:
       undici-types: 7.8.0
 
+  '@types/papaparse@5.3.16':
+    dependencies:
+      '@types/node': 24.1.0
+
   '@types/react-dom@19.1.6(@types/react@19.1.8)':
     dependencies:
       '@types/react': 19.1.8
@@ -6819,6 +6835,8 @@ snapshots:
       p-limit: 4.0.0
 
   package-json-from-dist@1.0.1: {}
+
+  papaparse@5.5.3: {}
 
   parent-module@1.0.1:
     dependencies:

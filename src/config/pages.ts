@@ -23,4 +23,8 @@ export const pages: Page[] = [
     key: 'pages.hash',
     href: '/hash',
   },
+  {
+    key: 'pages.csv',
+    href: '/csv',
+  },
 ];
