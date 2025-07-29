@@ -12,16 +12,17 @@ import { ToolSearch } from './partials/ToolSearch';
 
 export const HomePage: React.FC = () => {
   const t = useTranslations('home');
+  const tTools = useTranslations('tools');
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('all');
 
   const filteredPages = pages.filter((page) => {
     const toolKey = page.key.split('.')[1];
 
-    // @ts-ignore
-    const title = t(`tools.${toolKey}.title`).toLowerCase();
-    // @ts-ignore
-    const description = t(`tools.${toolKey}.description`).toLowerCase();
+    // @ts-expect-error
+    const title = tTools(`${toolKey}.title`).toLowerCase();
+    // @ts-expect-error
+    const description = tTools(`${toolKey}.description`).toLowerCase();
     const matchesSearch = title.includes(searchQuery.toLowerCase()) || description.includes(searchQuery.toLowerCase());
 
     const matchesFilter = activeFilter === 'all' || page.category === activeFilter;

@@ -1,4 +1,13 @@
-import { CodeIcon, HashIcon, LinkIcon, LucideIcon, RectangleEllipsisIcon, RegexIcon, Table2Icon } from 'lucide-react';
+import {
+  CodeIcon,
+  FingerprintIcon,
+  HashIcon,
+  LinkIcon,
+  LucideIcon,
+  RectangleEllipsisIcon,
+  RegexIcon,
+  Table2Icon,
+} from 'lucide-react';
 
 export type FilterCategory = 'all' | 'cryptography' | 'generators' | 'testing' | 'converters';
 
@@ -14,6 +23,7 @@ export const pages: Page[] = [
     key: 'pages.uuid',
     href: '/uuid',
     category: 'generators',
+    icon: FingerprintIcon,
   },
   {
     key: 'pages.regex',

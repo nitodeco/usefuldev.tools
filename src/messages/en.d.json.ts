@@ -43,43 +43,6 @@ declare const messages: {
             "generators": "Generators",
             "testing": "Testing",
             "converters": "Converters"
-        },
-        "tools": {
-            "uuid": {
-                "title": "UUID Generator",
-                "description": "Generate UUIDs",
-                "category": "generators"
-            },
-            "regex": {
-                "title": "Regex Tester",
-                "description": "Validate regular expressions",
-                "category": "testing"
-            },
-            "hash": {
-                "title": "Hash Generator",
-                "description": "Generate cryptographic hashes",
-                "category": "cryptography"
-            },
-            "base64": {
-                "title": "Base64 Converter",
-                "description": "Encode and decode Base64",
-                "category": "converters"
-            },
-            "csv": {
-                "title": "CSV/JSON Converter",
-                "description": "Convert CSV and JSON",
-                "category": "converters"
-            },
-            "markdown": {
-                "title": "Markdown Converter",
-                "description": "Convert Markdown to HTML",
-                "category": "converters"
-            },
-            "urlEncoder": {
-                "title": "URL Encoder/Decoder",
-                "description": "Encode and decode URLs",
-                "category": "converters"
-            }
         }
     },
     "themeToggle": {
@@ -88,7 +51,7 @@ declare const messages: {
     "tools": {
         "uuid": {
             "title": "UUID Generator",
-            "description": "Generate UUIDs (Universally Unique Identifiers) in different versions",
+            "description": "Generate UUIDs in different versions",
             "generateSingle": "Generate UUID",
             "generatedUuids": "Generated UUID",
             "selectVersion": "Select UUID version",
@@ -101,7 +64,7 @@ declare const messages: {
         },
         "regex": {
             "title": "Regex Validator",
-            "description": "Validate and test regular expressions with real-time feedback",
+            "description": "Test regular expressions",
             "regexPattern": "Regex Pattern",
             "testString": "Test String",
             "validRegex": "Valid",
@@ -117,7 +80,7 @@ declare const messages: {
         },
         "hash": {
             "title": "Hash Generator",
-            "description": "Generate hashes using various cryptographic algorithms",
+            "description": "Generate cryptographic hashes",
             "inputText": "Input Text",
             "selectAlgorithm": "Select hash algorithm",
             "inputPlaceholder": "Enter text to hash",
@@ -133,8 +96,8 @@ declare const messages: {
             }
         },
         "csv": {
-            "title": "CSV/JSON Converter",
-            "description": "Convert between CSV and JSON formats easily",
+            "title": "CSV-JSON Converter",
+            "description": "Convert between CSV and JSON",
             "mode": "Conversion Mode",
             "csvToJson": "CSV to JSON",
             "jsonToCsv": "JSON to CSV",
@@ -153,7 +116,7 @@ declare const messages: {
         },
         "base64": {
             "title": "Base64 Converter",
-            "description": "Encode and decode text and files to/from Base64 format with real-time conversion",
+            "description": "Encode and decode Base64",
             "inputText": "Input Text",
             "outputText": "Result",
             "mode": "Mode",
@@ -190,8 +153,8 @@ declare const messages: {
             }
         },
         "markdown": {
-            "title": "Markdown Converter",
-            "description": "Convert between Markdown and HTML in real-time",
+            "title": "Markdown-HTML Converter",
+            "description": "Convert between Markdown and HTML",
             "markdownInput": "Markdown Input",
             "htmlOutput": "HTML Result",
             "markdownPlaceholder": "Enter your markdown here...",
@@ -206,8 +169,8 @@ declare const messages: {
             "htmlToMarkdown": "HTML to Markdown"
         },
         "urlEncoder": {
-            "title": "URL Encoder/Decoder",
-            "description": "Encode and decode URLs with support for both component and standard encoding",
+            "title": "URL Encoder",
+            "description": "Encode and decode URLs",
             "input": "Input",
             "output": "Result",
             "mode": "Mode",
