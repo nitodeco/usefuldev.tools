@@ -27,7 +27,8 @@ declare const messages: {
         "hash": "Hash Generator",
         "markdown": "Markdown Converter",
         "csv": "CSV/JSON Converter",
-        "base64": "Base64 Converter"
+        "base64": "Base64 Converter",
+        "numberBaseConverter": "Number Base Converter"
     },
     "home": {
         "title": "Useful Developer Tools",
@@ -72,6 +73,11 @@ declare const messages: {
             "markdown": {
                 "title": "Markdown Converter",
                 "description": "Convert between Markdown and HTML in real-time",
+                "category": "converters"
+            },
+            "numberBaseConverter": {
+                "title": "Number Base Converter",
+                "description": "Convert numbers between binary, decimal, and hexadecimal formats",
                 "category": "converters"
             }
         },
@@ -214,6 +220,26 @@ declare const messages: {
         "conversionMode": "Conversion Mode",
         "markdownToHtml": "Markdown to HTML",
         "htmlToMarkdown": "HTML to Markdown"
+    },
+    "converter": {
+        "title": "Number Base Converter",
+        "description": "Convert numbers between binary, decimal, and hexadecimal formats",
+        "inputLabel": "Input",
+        "outputLabel": "Output",
+        "binaryLabel": "Binary",
+        "decimalLabel": "Decimal",
+        "hexadecimalLabel": "Hexadecimal",
+        "inputPlaceholder": "Enter a number",
+        "convertButton": "Convert",
+        "clearButton": "Clear",
+        "invalidInput": "Invalid input for selected format",
+        "conversionError": "Error converting number",
+        "copySuccess": "Copied to clipboard",
+        "formats": {
+            "binary": "Binary (Base 2)",
+            "decimal": "Decimal (Base 10)",
+            "hexadecimal": "Hexadecimal (Base 16)"
+        }
     }
 };
 export default messages;

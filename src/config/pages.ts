@@ -40,6 +40,10 @@ export const pages: Page[] = [
     href: '/markdown',
     category: 'converters',
   },
+  {
+    key: 'pages.numberBaseConverter',
+    href: '/number-base-converter',
+  },
 ];
 
 export const filterOptions: FilterCategory[] = ['all', 'cryptography', 'generators', 'testing', 'converters'];
