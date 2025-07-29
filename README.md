@@ -14,6 +14,8 @@
 
 ## 🚀 Features
 
+<img src="docs/screenshot.png" alt="Useful Dev Tools Demo" width="100%" height="auto">
+
 Useful Dev Tools provides a comprehensive suite of developer utilities, all running client-side for privacy and speed:
 
 - **Hash Generator** - Generate MD5, SHA-256, SHA-512, bcrypt, and xxHash hashes
