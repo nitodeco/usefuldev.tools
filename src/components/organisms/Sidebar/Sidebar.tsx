@@ -4,10 +4,10 @@ import { ReactNode } from 'react';
 
 import { Wrench } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import posthog from 'posthog-js';
 
 import { useRouter } from 'next/navigation';
 
-import { Separator } from '@/components/ui/separator';
 import {
   SidebarContent,
   SidebarFooter,
@@ -15,7 +15,6 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
-  SidebarInset,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -57,7 +56,7 @@ export const Sidebar: React.FC<{ children: ReactNode }> = ({ children }) => {
                 {pages.map((page) => (
                   <SidebarMenuItem key={page.key}>
                     <SidebarMenuButton asChild tooltip={t(page.key as any)}>
-                      <a href={page.href}>
+                      <a href={page.href} onClick={() => posthog.capture(`${page.key} clicked`)}>
                         {page.icon && <page.icon className='h-4 w-4' />}
                         <span className='group-data-[collapsible=icon]:sr-only'>{t(page.key as any)}</span>
                       </a>
