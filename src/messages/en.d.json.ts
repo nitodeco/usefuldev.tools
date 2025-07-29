@@ -8,6 +8,12 @@ declare const messages: {
         "navigation": "Navigation",
         "welcome": "Welcome to Useful Dev Tools"
     },
+    "notFound": {
+        "title": "404",
+        "subtitle": "Page Not Found",
+        "description": "The page you are looking for does not exist.",
+        "returnHome": "Return Home"
+    },
     "pages": {
         "home": "Home",
         "uuid": "UUID Generator",
