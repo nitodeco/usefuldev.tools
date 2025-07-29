@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { CharacterAnalysis } from './partials/CharacterAnalysis';
 import { RegexInputSection } from './partials/RegexInputSection';
 import { TestInputSection } from './partials/TestInputSection';
-import { useRegexValidation } from './useRegexValidation';
+import { useRegexValidation } from './partials/useRegexValidation';
 
 export const RegexPage: React.FC = () => {
   const t = useTranslations('regex');

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import posthog from 'posthog-js';
 
-import type { MatchType, RegexValidationResult, UseRegexValidationReturn } from './types';
+import type { MatchType, RegexValidationResult, UseRegexValidationReturn } from '../types';
 
 const VALIDATION_DELAY = 300;
 
@@ -35,18 +35,24 @@ export const useRegexValidation = (): UseRegexValidationReturn => {
       if (testStr.trim()) {
         const partialMatch = regex.test(testStr);
 
-        charMatches = Array.from(testStr).map((char) => {
-          try {
-            return regex.test(char);
-          } catch {
-            return false;
-          }
-        });
-
         if (!partialMatch) {
           matchResult = 'none';
+          charMatches = new Array(testStr.length).fill(false);
         } else {
-          const remainingAfterMatches = testStr.replace(new RegExp(pattern, 'g'), '');
+          const globalRegex = new RegExp(pattern, 'g');
+          const matches = Array.from(testStr.matchAll(globalRegex));
+
+          charMatches = new Array(testStr.length).fill(false);
+
+          for (const match of matches) {
+            if (match.index !== undefined) {
+              for (let i = match.index; i < match.index + match[0].length; i++) {
+                charMatches[i] = true;
+              }
+            }
+          }
+
+          const remainingAfterMatches = testStr.replace(globalRegex, '');
           const isFullMatch = remainingAfterMatches === '';
           matchResult = isFullMatch ? 'full' : 'partial';
         }
