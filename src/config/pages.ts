@@ -28,6 +28,12 @@ export const pages: Page[] = [
   {
     key: 'pages.csv',
     href: '/csv',
+    category: 'converters',
+  },
+  {
+    key: 'pages.base64',
+    href: '/base64',
+    category: 'converters',
   },
 ];
 
