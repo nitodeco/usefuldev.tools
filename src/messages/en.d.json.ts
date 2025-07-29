@@ -17,6 +17,26 @@ declare const messages: {
     },
     "themeToggle": {
         "toggleTheme": "Toggle Theme"
+    },
+    "uuid": {
+        "title": "UUID Generator",
+        "description": "Generate UUIDs (Universally Unique Identifiers) in different versions",
+        "version": "Version",
+        "generateSingle": "Generate UUID",
+        "copyToClipboard": "Copy to clipboard",
+        "copiedSuccess": "Copied to clipboard!",
+        "generatedUuids": "Generated UUID",
+        "selectVersion": "Select UUID version",
+        "generatorSettings": "Generator Settings",
+        "generatorDescription": "Configure your UUID generation preferences",
+        "copy": "Copy",
+        "generatedAt": "Generated at {timestamp}",
+        "versions": {
+            "v1": "Version 1 (Time-based)",
+            "v4": "Version 4 (Random)",
+            "v6": "Version 6 (Reordered time)",
+            "v7": "Version 7 (Unix timestamp)"
+        }
     }
 };
 export default messages;
