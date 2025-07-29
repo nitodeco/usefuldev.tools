@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Check, Copy } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import posthog from 'posthog-js';
 import { v1 as uuidv1, v4 as uuidv4, v6 as uuidv6, v7 as uuidv7 } from 'uuid';
 
 import { Badge } from '@/components/ui/badge';
@@ -40,6 +41,11 @@ export const UuidPage: React.FC = () => {
     const newUuid = generateUuid(selectedVersion);
     setGeneratedUuid(newUuid);
     setCopied(false);
+
+    posthog.capture('uuid_generated', {
+      version: selectedVersion,
+      uuid_length: newUuid.length,
+    });
   };
 
   useEffect(() => {
