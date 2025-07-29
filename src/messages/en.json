@@ -43,5 +43,39 @@
         "noTestString": "No test string provided",
         "matchingCharacters": "Matching characters",
         "nonMatchingCharacters": "Non-matching characters"
+    },
+    "jwt": {
+        "title": "JWT Decoder & Encoder",
+        "description": "Decode JWT tokens or encode new ones with custom payloads and secrets",
+        "decode": "Decode",
+        "encode": "Encode",
+        "jwtToken": "JWT Token",
+        "header": "Header",
+        "payload": "Payload",
+        "signature": "Signature",
+        "secret": "Secret",
+        "algorithm": "Algorithm",
+        "validJwt": "Valid JWT",
+        "invalidJwt": "Invalid JWT",
+        "jwtPlaceholder": "Paste your JWT token here...",
+        "payloadPlaceholder": "Enter JSON payload...",
+        "secretPlaceholder": "Enter secret key...",
+        "copyToken": "Copy token",
+        "generateToken": "Generate token",
+        "verifySignature": "Verify signature",
+        "signatureVerified": "Signature verified",
+        "signatureInvalid": "Invalid signature",
+        "signatureUnverified": "Signature not verified",
+        "invalidJson": "Invalid JSON",
+        "invalidToken": "Invalid token format",
+        "copySuccess": "Copied to clipboard",
+        "algorithms": {
+            "HS256": "HS256 - HMAC with SHA-256",
+            "HS384": "HS384 - HMAC with SHA-384",
+            "HS512": "HS512 - HMAC with SHA-512",
+            "RS256": "RS256 - RSA with SHA-256",
+            "RS384": "RS384 - RSA with SHA-384",
+            "RS512": "RS512 - RSA with SHA-512"
+        }
     }
 }
