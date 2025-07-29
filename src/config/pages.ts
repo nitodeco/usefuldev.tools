@@ -40,6 +40,11 @@ export const pages: Page[] = [
     href: '/markdown',
     category: 'converters',
   },
+  {
+    key: 'pages.urlEncoder',
+    href: '/url-encoder',
+    category: 'converters',
+  },
 ];
 
 export const filterOptions: FilterCategory[] = ['all', 'cryptography', 'generators', 'testing', 'converters'];

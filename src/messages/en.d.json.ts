@@ -25,6 +25,7 @@ declare const messages: {
         "regex": "Regex Tester",
         "jwt": "JWT Decoder",
         "hash": "Hash Generator",
+        "urlEncoder": "URL Encoder/Decoder",
         "markdown": "Markdown Converter",
         "csv": "CSV/JSON Converter",
         "base64": "Base64 Converter"
@@ -73,9 +74,13 @@ declare const messages: {
                 "title": "Markdown Converter",
                 "description": "Convert between Markdown and HTML in real-time",
                 "category": "converters"
+            },
+            "urlEncoder": {
+                "title": "URL Encoder/Decoder",
+                "description": "Encode and decode URLs with ease",
+                "category": "converters"
             }
-        },
-        "visitTool": "Open Tool"
+        }
     },
     "themeToggle": {
         "toggleTheme": "Toggle Theme"
@@ -125,95 +130,6 @@ declare const messages: {
             "bcrypt": "bcrypt",
             "xxhash": "xxHash"
         }
-    },
-    "csv": {
-        "title": "CSV/JSON Converter",
-        "description": "Convert between CSV and JSON formats easily",
-        "mode": "Conversion Mode",
-        "csvToJson": "CSV to JSON",
-        "jsonToCsv": "JSON to CSV",
-        "input": "Input",
-        "output": "Output",
-        "convert": "Convert",
-        "clear": "Clear",
-        "copyOutput": "Copy Output",
-        "downloadFile": "Download File",
-        "uploadFile": "Drop a file here or click to upload",
-        "inputPlaceholder": "Paste your data here...",
-        "fileInfo": "File: {{fileName}} ({{fileSize}})",
-        "options": "Options",
-        "hasHeader": "First row is header",
-        "prettyPrint": "Pretty print JSON"
-    },
-    "base64": {
-        "title": "Base64 Converter",
-        "description": "Encode and decode text and files to/from Base64 format with real-time conversion",
-        "inputText": "Input Text",
-        "outputText": "Output",
-        "mode": "Mode",
-        "inputType": "Input Type",
-        "encodePlaceholder": "Enter text to encode to Base64",
-        "decodePlaceholder": "Enter Base64 text to decode",
-        "clearAll": "Clear All",
-        "downloadFile": "Download as File",
-        "uploadFile": "Upload File",
-        "dropFile": "Drop a file here or click to browse",
-        "fileInfo": "File: {name} ({size})",
-        "supportedFormats": "Supports images, PDFs, text files, and more",
-        "output": {
-            "fileEncoded": "File Encoded",
-            "fileConverted": "File converted to Base64",
-            "base64Output": "Base64 output ({count} characters)",
-            "outputTruncated": "Output truncated for display. Use copy or download to get the full content.",
-            "copyToClipboard": "Copy to clipboard",
-            "readyForDownload": "Ready for Download",
-            "decodedFileReady": "Decoded file is ready. Click \"Download as File\" to save it."
-        },
-        "modes": {
-            "encode": "Encode to Base64",
-            "decode": "Decode from Base64"
-        },
-        "inputTypes": {
-            "text": "Text Input",
-            "file": "File Upload"
-        },
-        "errors": {
-            "fileTooBig": "File is too large (max 10MB)",
-            "fileReadError": "Error reading file",
-            "invalidBase64File": "Invalid Base64 data for file conversion"
-        }
-    },
-    "fileUpload": {
-        "dropFile": "Drop a file here or click to browse",
-        "fileInfo": {
-            "name": "Name",
-            "size": "Size",
-            "type": "Type",
-            "lastModified": "Last Modified",
-            "unknown": "Unknown"
-        },
-        "fileSizes": {
-            "bytes": "Bytes",
-            "kb": "KB",
-            "mb": "MB",
-            "gb": "GB"
-        }
-    },
-    "markdown": {
-        "title": "Markdown Converter",
-        "description": "Convert between Markdown and HTML in real-time",
-        "markdownInput": "Markdown Input",
-        "htmlOutput": "HTML Output",
-        "markdownPlaceholder": "Enter your markdown here...",
-        "htmlPlaceholder": "Enter your HTML here...",
-        "preview": "Preview",
-        "copyMarkdown": "Copy Markdown",
-        "copyHtml": "Copy HTML",
-        "copiedToClipboard": "Copied to clipboard!",
-        "clearAll": "Clear All",
-        "conversionMode": "Conversion Mode",
-        "markdownToHtml": "Markdown to HTML",
-        "htmlToMarkdown": "HTML to Markdown"
     }
 };
 export default messages;
