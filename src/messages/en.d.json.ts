@@ -25,7 +25,7 @@ declare const messages: {
         "regex": "Regex Tester",
         "jwt": "JWT Decoder",
         "hash": "Hash Generator",
-
+        "markdown": "Markdown Converter",
         "csv": "CSV/JSON Converter",
         "base64": "Base64 Converter"
     },
@@ -193,6 +193,22 @@ declare const messages: {
             "mb": "MB",
             "gb": "GB"
         }
+    },
+    "markdown": {
+        "title": "Markdown Converter",
+        "description": "Convert between Markdown and HTML in real-time",
+        "markdownInput": "Markdown Input",
+        "htmlOutput": "HTML Output",
+        "markdownPlaceholder": "Enter your markdown here...",
+        "htmlPlaceholder": "Enter your HTML here...",
+        "preview": "Preview",
+        "copyMarkdown": "Copy Markdown",
+        "copyHtml": "Copy HTML",
+        "copiedToClipboard": "Copied to clipboard!",
+        "clearAll": "Clear All",
+        "conversionMode": "Conversion Mode",
+        "markdownToHtml": "Markdown to HTML",
+        "htmlToMarkdown": "HTML to Markdown"
     }
 };
 export default messages;
