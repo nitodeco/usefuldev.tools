@@ -68,11 +68,6 @@ export const Sidebar: React.FC<{ children: ReactNode }> = ({ children }) => {
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
-        <SidebarFooter className='border-t border-sidebar-border p-4'>
-          <div className='flex justify-center'>
-            <ThemeToggle />
-          </div>
-        </SidebarFooter>
         <SidebarBorderToggle />
       </SidebarPrimitive>
       <main className='flex-1 flex flex-col min-h-screen'>{children}</main>
