@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Copy } from 'lucide-react';
+import { Copy, Check } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -24,11 +24,13 @@ export const JwtDecodedDisplay: React.FC<JwtDecodedDisplayProps> = ({ decoded })
   }
 
   const handleCopy = (content: string, section: string) => {
-    copyToClipboard(content, () => setCopiedSection(section));
-    setTimeout(() => setCopiedSection(null), 2000);
+    copyToClipboard(content, () => {
+      setCopiedSection(section);
+      setTimeout(() => setCopiedSection(null), 2000);
+    });
   };
 
-  const formatJson = (obj: any) => {
+  const formatJson = (obj: unknown) => {
     try {
       return JSON.stringify(obj, null, 2);
     } catch {
@@ -47,7 +49,7 @@ export const JwtDecodedDisplay: React.FC<JwtDecodedDisplayProps> = ({ decoded })
             onClick={() => handleCopy(formatJson(decoded.header), 'header')}
             className='h-8 w-8 p-0'
           >
-            <Copy className='h-3 w-3' />
+            {copiedSection === 'header' ? <Check className='h-3 w-3 text-green-500' /> : <Copy className='h-3 w-3' />}
           </Button>
         </CardHeader>
         <CardContent>
@@ -66,7 +68,7 @@ export const JwtDecodedDisplay: React.FC<JwtDecodedDisplayProps> = ({ decoded })
             onClick={() => handleCopy(formatJson(decoded.payload), 'payload')}
             className='h-8 w-8 p-0'
           >
-            <Copy className='h-3 w-3' />
+            {copiedSection === 'payload' ? <Check className='h-3 w-3 text-green-500' /> : <Copy className='h-3 w-3' />}
           </Button>
         </CardHeader>
         <CardContent>
@@ -85,7 +87,7 @@ export const JwtDecodedDisplay: React.FC<JwtDecodedDisplayProps> = ({ decoded })
             onClick={() => handleCopy(decoded.signature, 'signature')}
             className='h-8 w-8 p-0'
           >
-            <Copy className='h-3 w-3' />
+            {copiedSection === 'signature' ? <Check className='h-3 w-3 text-green-500' /> : <Copy className='h-3 w-3' />}
           </Button>
         </CardHeader>
         <CardContent>

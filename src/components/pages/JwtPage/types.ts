@@ -5,11 +5,15 @@ export type Algorithm = 'HS256' | 'HS384' | 'HS512' | 'RS256' | 'RS384' | 'RS512
 export interface JwtHeader {
   alg: string;
   typ: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface JwtPayload {
-  [key: string]: any;
+  [key: string]: unknown;
+  sub?: string;
+  name?: string;
+  iat?: number;
+  exp?: number;
 }
 
 export interface DecodedJwt {

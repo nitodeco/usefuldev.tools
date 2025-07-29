@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Check, ShieldAlert, ShieldCheck, ShieldX, X } from 'lucide-react';
+import { ShieldAlert, ShieldCheck, ShieldX, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { Badge } from '@/components/ui/badge';
