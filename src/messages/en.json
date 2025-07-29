@@ -12,6 +12,7 @@
         "returnHome": "Return Home"
     },
     "footer": {
+        "privacy": "Privacy",
         "github": "View on GitHub",
         "coffee": "Buy me a coffee",
         "copyright": "Copyright © {year} Nico Möhn"
@@ -25,7 +26,8 @@
         "urlEncoder": "URL Encoder/Decoder",
         "markdown": "Markdown Converter",
         "csv": "CSV/JSON Converter",
-        "base64": "Base64 Converter"
+        "base64": "Base64 Converter",
+        "privacy": "Privacy Policy"
     },
     "home": {
         "title": "Useful Developer Tools",
@@ -200,6 +202,197 @@
             "kb": "KB",
             "mb": "MB",
             "gb": "GB"
+        }
+    },
+    "cookieConsent": {
+        "title": "We use cookies",
+        "description": "We use cookies to enhance your experience. These cookies help us remember your preferences and provide a better user experience.",
+        "descriptionShort": "We use cookies to enhance your experience and remember your preferences.",
+        "accept": "Accept",
+        "decline": "Decline",
+        "learnMore": "Learn more about cookies",
+        "acceptAll": "Accept all cookies",
+        "acceptNecessary": "Accept necessary only",
+        "managePreferences": "Manage preferences",
+        "byAccepting": "By clicking \"Accept\", you agree to our use of cookies.",
+        "necessary": "Necessary cookies",
+        "analytics": "Analytics cookies",
+        "preferences": "Preference cookies",
+        "cookieTypes": {
+            "necessary": {
+                "title": "Necessary",
+                "description": "These cookies are essential for the website to function properly. They cannot be disabled."
+            },
+            "preferences": {
+                "title": "Preferences",
+                "description": "These cookies remember your settings and preferences to provide a personalized experience."
+            },
+            "analytics": {
+                "title": "Analytics",
+                "description": "These cookies help us understand how visitors interact with our website by collecting anonymous information."
+            }
+        }
+    },
+    "privacy": {
+        "title": "Privacy Policy",
+        "subtitle": "How we handle your data and protect your privacy",
+        "description": "Learn about our privacy practices and data processing",
+        "lastUpdated": "Last updated: {date}",
+        "dataController": {
+            "title": "Data Controller Information",
+            "name": "Maksimir Software Lab j.d.o.o.",
+            "address": "Savska cesta 41, 10000 Zagreb",
+            "contact": "For any questions about this privacy policy or your data rights, please contact us at privacy@maksimir.dev."
+        },
+        "sections": {
+            "overview": {
+                "title": "Overview",
+                "content": "Useful Dev Tools is a collection of client-side development tools designed with privacy by design principles. We are committed to protecting your privacy and being transparent about our data practices. This privacy policy explains what data we collect, how we use it, and your rights under the General Data Protection Regulation (GDPR) and other applicable privacy laws."
+            },
+            "legalBasis": {
+                "title": "Legal Basis for Processing",
+                "content": "We process your data based on the following legal grounds:",
+                "items": {
+                    "consent": "Your explicit consent for analytics cookies and usage tracking",
+                    "legitimateInterests": "Our legitimate interests in improving the website and understanding how it is used",
+                    "technicalNecessity": "Technical necessity for essential functionality cookies that are required for the website to function"
+                }
+            },
+            "dataCollected": {
+                "title": "What Data We Collect",
+                "intro": "We collect different types of data to provide and improve our services:",
+                "technical": {
+                    "title": "Technical Data (No Consent Required)",
+                    "description": "Essential data required for the website to function properly:",
+                    "items": {
+                        "cookies": "Essential cookies for theme preferences, sidebar state, and cookie consent choices",
+                        "localStorage": "Local browser storage for tool settings and preferences",
+                        "clientSide": "All tool processing happens locally in your browser - no data is sent to external servers"
+                    }
+                },
+                "analytics": {
+                    "title": "Analytics Data (Requires Consent)",
+                    "description": "When you consent to analytics cookies, we collect anonymous usage data through PostHog to understand how visitors use our website:",
+                    "items": {
+                        "pageViews": "Pages visited and time spent on each page",
+                        "interactions": "Which tools are used and how they are interacted with",
+                        "browserInfo": "Browser type, device type, and screen resolution for compatibility improvements",
+                        "geolocation": "Approximate geographic location (country/region level) for usage statistics",
+                        "referrer": "Which website referred you to our site"
+                    },
+                    "anonymization": "All analytics data is anonymized and cannot be used to identify individual users. We do not collect IP addresses, personal identifiers, or any content you enter into our tools."
+                }
+            },
+            "dataUsage": {
+                "title": "How We Use Your Data",
+                "content": "We use the collected data for the following purposes:",
+                "items": {
+                    "functionality": "Essential cookies enable basic website functionality such as remembering your theme preference and sidebar state",
+                    "improvement": "Analytics data helps us understand which tools are most useful and identify areas for improvement",
+                    "performance": "Usage patterns help us optimize website performance and user experience",
+                    "development": "Understanding how tools are used guides our development of new features and improvements"
+                }
+            },
+            "dataSharing": {
+                "title": "Data Sharing and Third Parties",
+                "content": "We share data with the following third-party services:",
+                "postHog": {
+                    "title": "PostHog (Analytics)",
+                    "description": "We use PostHog for privacy-focused analytics. PostHog processes usage data on our behalf and provides us with anonymized insights about website usage.",
+                    "location": "Data is processed in the European Union",
+                    "purpose": "To understand how our website is used and improve user experience",
+                    "dataTypes": "Anonymous usage statistics, page views, and interaction events",
+                    "privacy": "PostHog is GDPR-compliant and does not use this data for their own purposes"
+                },
+                "noOtherSharing": "We do not sell, rent, or share your data with any other third parties. All tool processing happens locally in your browser."
+            },
+            "dataRetention": {
+                "title": "Data Retention",
+                "content": "We retain different types of data for different periods:",
+                "items": {
+                    "essential": "Essential cookies are kept until you clear your browser data or change your preferences",
+                    "analytics": "Analytics data is retained for 12 months and then automatically deleted",
+                    "localStorage": "Local storage data remains on your device until you clear it manually"
+                }
+            },
+            "cookies": {
+                "title": "Cookie Usage",
+                "description": "We use different types of cookies to enhance your experience and understand how our website is used. You can manage your cookie preferences at any time through our cookie consent banner or your browser settings."
+            },
+            "rights": {
+                "title": "Your Rights Under GDPR",
+                "content": "Under the General Data Protection Regulation (GDPR) and other privacy laws, you have the following rights:",
+                "items": {
+                    "access": "The right to access the personal data we hold about you",
+                    "rectification": "The right to correct any inaccurate personal data",
+                    "erasure": "The right to request deletion of your personal data",
+                    "restriction": "The right to restrict processing of your personal data",
+                    "portability": "The right to data portability (receive your data in a machine-readable format)",
+                    "objection": "The right to object to processing based on legitimate interests",
+                    "withdraw": "The right to withdraw consent for analytics cookies at any time",
+                    "complaint": "The right to lodge a complaint with a supervisory authority"
+                },
+                "exercise": "To exercise any of these rights, please contact us at privacy@maksimir.dev."
+            },
+            "management": {
+                "title": "Managing Your Data",
+                "content": "You have full control over your data:",
+                "items": {
+                    "cookies": "Use our cookie consent banner to change your analytics preferences",
+                    "browser": "Clear cookies and local storage through your browser settings",
+                    "optOut": "Withdraw consent for analytics at any time - your choice will be respected immediately",
+                    "tools": "All tool data is processed locally and never leaves your browser"
+                }
+            },
+            "changes": {
+                "title": "Changes to This Policy",
+                "content": "We may update this privacy policy from time to time to reflect changes in our practices or applicable laws. We will notify users of significant changes by updating the \"last updated\" date at the top of this policy. Continued use of the website after changes constitutes acceptance of the updated policy."
+            },
+            "contact": {
+                "title": "Contact Information",
+                "content": "If you have any questions about this privacy policy, your data rights, or our data practices, please contact us:",
+                "methods": {
+                    "github": "Through our GitHub repository: https://github.com/nitodeco/usefuldev.tools",
+                    "email": "Email: privacy@maksimir.dev"
+                },
+                "response": "We will respond to all privacy-related inquiries within 30 days as required by GDPR."
+            },
+            "supervisory": {
+                "title": "Supervisory Authority",
+                "content": "If you believe we have not addressed your privacy concerns adequately, you have the right to lodge a complaint with your local data protection supervisory authority. For users in the EU, you can find your local authority at: https://edpb.europa.eu/about-edpb/board/members_en"
+            }
+        },
+        "cookieTypes": {
+            "necessary": {
+                "title": "Necessary Cookies",
+                "description": "Essential for basic website functionality and cannot be disabled. These cookies do not require consent as they are technically necessary.",
+                "purpose": "These cookies are essential for the website to function properly and provide basic features.",
+                "retention": "Until you clear your browser data or change your preferences",
+                "examples": {
+                    "theme": "Theme preference (dark/light mode)",
+                    "sidebar": "Sidebar state (open/closed)",
+                    "consent": "Cookie consent preferences"
+                }
+            },
+            "preferences": {
+                "title": "Preference Cookies",
+                "description": "Remember your settings to provide a personalized experience. These cookies require consent.",
+                "purpose": "To remember your choices and provide a customized experience based on your preferences.",
+                "retention": "Until you clear your browser data or change your preferences",
+                "examples": {
+                    "language": "Language preference",
+                    "settings": "Tool-specific settings and configurations"
+                }
+            },
+            "analytics": {
+                "title": "Analytics Cookies",
+                "description": "Help us understand how you use our website through PostHog analytics. These cookies require your explicit consent.",
+                "purpose": "To analyze website usage patterns and improve user experience through privacy-focused analytics.",
+                "retention": "12 months, then automatically deleted",
+                "provider": "PostHog (GDPR-compliant analytics service)",
+                "note": "All analytics data is anonymized and cannot be used to identify individual users.",
+                "dataTypes": "Page views, tool interactions, browser information, approximate location (country level), and referrer information"
+            }
         }
     }
 }

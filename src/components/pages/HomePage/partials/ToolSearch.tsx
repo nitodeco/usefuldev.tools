@@ -5,6 +5,8 @@ import { useTranslations } from 'next-intl';
 
 import { Input } from '@/components/ui/input';
 
+import { useAnalytics } from '@/hooks/use-analytics';
+
 export type Props = {
   searchQuery: string;
   setSearchQuery: (value: string) => void;
@@ -12,6 +14,7 @@ export type Props = {
 
 export const ToolSearch: React.FC<Props> = ({ searchQuery, setSearchQuery }) => {
   const t = useTranslations('home');
+  const { track } = useAnalytics();
 
   return (
     <div className='relative'>
@@ -19,7 +22,10 @@ export const ToolSearch: React.FC<Props> = ({ searchQuery, setSearchQuery }) => 
       <Input
         placeholder={t('search.placeholder')}
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={(e) => {
+          setSearchQuery(e.target.value);
+          track('search_query_changed', { query: e.target.value });
+        }}
         className='pl-10 h-12 text-base'
       />
     </div>

@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Badge } from '@/components/ui/badge';
 
 import { type FilterCategory, filterOptions, pages } from '@/config/pages';
+import { useAnalytics } from '@/hooks/use-analytics';
 
 import { HomePageHero } from './partials/HomePageHero';
 import { ToolCard } from './partials/ToolCard';
@@ -13,10 +14,13 @@ import { ToolSearch } from './partials/ToolSearch';
 export const HomePage: React.FC = () => {
   const t = useTranslations('home');
   const tTools = useTranslations('tools');
+  const { track } = useAnalytics();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('all');
 
-  const filteredPages = pages.filter((page) => {
+  const toolPages = pages.filter((page) => page.showInSidebar);
+
+  const filteredPages = toolPages.filter((page) => {
     const toolKey = page.key.split('.')[1];
 
     // @ts-expect-error
@@ -45,7 +49,10 @@ export const HomePage: React.FC = () => {
               className={`cursor-pointer px-4 py-2 text-sm transition-colors ${
                 activeFilter === filter ? '' : 'hover:bg-primary/10'
               }`}
-              onClick={() => setActiveFilter(filter)}
+              onClick={() => {
+                setActiveFilter(filter);
+                track('filter_selected', { filter });
+              }}
             >
               {t(`filters.${filter}`)}
             </Badge>

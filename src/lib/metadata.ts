@@ -4,9 +4,10 @@ import { Metadata } from 'next';
 
 export type Props = {
   page?: string;
+  namespace?: string;
 };
 
-export const generatePageMetadata = ({ page }: Props = {}) => {
+export const generatePageMetadata = ({ page, namespace }: Props = {}) => {
   return async (): Promise<Metadata> => {
     const globalT = await getTranslations();
     const siteName = globalT('title');
@@ -29,19 +30,52 @@ export const generatePageMetadata = ({ page }: Props = {}) => {
       };
     }
 
-    // @ts-expect-error
-    const t = await getTranslations({ namespace: `tools.${page}` });
-    const title = `${t('title')} - ${siteName}`;
-    const description = t('description');
-    const pageUrl = `${siteUrl}/${page}`;
+    let translationNamespace: string;
+    let pageSlug: string;
 
-    return {
-      title,
-      description,
-      authors: [{ name: 'Nico Möhn' }],
-      alternates: {
-        canonical: pageUrl,
-      },
-    };
+    if (namespace) {
+      translationNamespace = namespace;
+      pageSlug = page;
+    } else if (page.startsWith('pages.')) {
+      const pageName = page.replace('pages.', '');
+
+      translationNamespace = pageName;
+      pageSlug = pageName;
+    } else {
+      translationNamespace = `tools.${page}`;
+      pageSlug = page;
+    }
+
+    try {
+      // @ts-expect-error
+      const t = await getTranslations(translationNamespace);
+      const title = `${t('title')} - ${siteName}`;
+      const description = t('description');
+      const pageUrl = `${siteUrl}/${pageSlug}`;
+
+      return {
+        title,
+        description,
+        authors: [{ name: 'Nico Möhn' }],
+        alternates: {
+          canonical: pageUrl,
+        },
+      };
+    } catch (error) {
+      console.warn(`Translation not found for namespace: ${translationNamespace}. Error: ${JSON.stringify(error)}`);
+
+      const fallbackTitle = `${page} - ${siteName}`;
+      const fallbackDescription = 'A useful tool for developers.';
+      const pageUrl = `${siteUrl}/${pageSlug}`;
+
+      return {
+        title: fallbackTitle,
+        description: fallbackDescription,
+        authors: [{ name: 'Nico Möhn' }],
+        alternates: {
+          canonical: pageUrl,
+        },
+      };
+    }
   };
 };

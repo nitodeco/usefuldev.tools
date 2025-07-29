@@ -3,11 +3,14 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import Papa from 'papaparse';
-import posthog from 'posthog-js';
+
+import { useAnalytics } from '@/hooks/use-analytics';
 
 import { ConversionMode, ConversionOptions } from '../types';
 
 export const useCsvOperations = () => {
+  const { track } = useAnalytics();
+
   const [mode, setMode] = useState<ConversionMode>('csv-to-json');
   const [inputText, setInputText] = useState<string>('');
   const [outputText, setOutputText] = useState<string>('');
@@ -41,7 +44,7 @@ export const useCsvOperations = () => {
 
         setOutputText(jsonOutput);
 
-        posthog.capture('csv_to_json_converted', {
+        track('csv_to_json_converted', {
           input_length: inputText.length,
           output_length: jsonOutput.length,
           has_header: options.hasHeader,
@@ -60,7 +63,7 @@ export const useCsvOperations = () => {
 
         setOutputText(csv);
 
-        posthog.capture('json_to_csv_converted', {
+        track('json_to_csv_converted', {
           input_length: inputText.length,
           output_length: csv.length,
           has_header: options.hasHeader,
@@ -73,7 +76,7 @@ export const useCsvOperations = () => {
     } finally {
       setIsConverting(false);
     }
-  }, [inputText, mode, options]);
+  }, [inputText, mode, options, track]);
 
   useEffect(() => {
     if (inputText) {
@@ -112,7 +115,7 @@ export const useCsvOperations = () => {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
 
-    posthog.capture('csv_file_downloaded', {
+    track('csv_file_downloaded', {
       file_type: fileType,
       file_size: blob.size,
     });

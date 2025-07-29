@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import bcrypt from 'bcryptjs';
 import CryptoJS from 'crypto-js';
 import { useTranslations } from 'next-intl';
-import posthog from 'posthog-js';
 import xxhash from 'xxhash-wasm';
 
 import { Badge } from '@/components/ui/badge';
@@ -15,12 +14,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/atoms/Button';
 import { CopyButton } from '@/components/molecules/CopyButton';
 
+import { useAnalytics } from '@/hooks/use-analytics';
 import { copyToClipboard } from '@/lib/copy';
 
 import { HashAlgorithm } from './types';
 
 export const HashingPage: React.FC = () => {
   const t = useTranslations('tools.hash');
+  const { track } = useAnalytics();
   const [selectedAlgorithm, setSelectedAlgorithm] = useState<HashAlgorithm>('sha256');
   const [inputText, setInputText] = useState<string>('');
   const [hashedValue, setHashedValue] = useState<string>('');
@@ -80,7 +81,7 @@ export const HashingPage: React.FC = () => {
       setHashedValue(hash);
       setUsedAlgorithm(selectedAlgorithm);
 
-      posthog.capture('hash_generated', {
+      track('hash_generated', {
         algorithm: selectedAlgorithm,
         input_length: inputText.length,
         hash_length: hash.length,

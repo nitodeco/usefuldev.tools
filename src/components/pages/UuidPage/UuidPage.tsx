@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { useTranslations } from 'next-intl';
-import posthog from 'posthog-js';
 import { v1 as uuidv1, v4 as uuidv4, v6 as uuidv6, v7 as uuidv7 } from 'uuid';
 
 import { Badge } from '@/components/ui/badge';
@@ -12,12 +11,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/atoms/Button';
 import { CopyButton } from '@/components/molecules/CopyButton';
 
+import { useAnalytics } from '@/hooks/use-analytics';
 import { copyToClipboard } from '@/lib/copy';
 
 import { UuidVersion } from './types';
 
 export const UuidPage: React.FC = () => {
   const t = useTranslations('tools.uuid');
+  const { track } = useAnalytics();
   const [selectedVersion, setSelectedVersion] = useState<UuidVersion>('v4');
   const [generatedUuid, setGeneratedUuid] = useState<string>('');
   const [copied, setCopied] = useState<boolean>(false);
@@ -43,7 +44,7 @@ export const UuidPage: React.FC = () => {
     setGeneratedUuid(newUuid);
     setCopied(false);
 
-    posthog.capture('uuid_generated', {
+    track('uuid_generated', {
       version: selectedVersion,
       uuid_length: newUuid.length,
     });

@@ -56,18 +56,20 @@ export const Sidebar: React.FC<Props> = ({ children, defaultOpen = true }) => {
             </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {pages.map((page) => (
-                  <SidebarMenuItem key={page.key}>
-                    {/* @ts-expect-error */}
-                    <SidebarMenuButton asChild tooltip={t(page.key)}>
-                      <a href={page.href} onClick={() => posthog.capture(`${page.key} clicked`)}>
-                        {page.icon && <page.icon className='h-4 w-4' />}
-                        {/* @ts-expect-error */}
-                        <span className='group-data-[collapsible=icon]:sr-only'>{t(page.key)}</span>
-                      </a>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
+                {pages
+                  .filter((page) => page.showInSidebar)
+                  .map((page) => (
+                    <SidebarMenuItem key={page.key}>
+                      {/* @ts-expect-error */}
+                      <SidebarMenuButton asChild tooltip={t(page.key)}>
+                        <a href={page.href} onClick={() => posthog.capture(`${page.key} clicked`)}>
+                          {page.icon && <page.icon className='h-4 w-4' />}
+                          {/* @ts-expect-error */}
+                          <span className='group-data-[collapsible=icon]:sr-only'>{t(page.key)}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>

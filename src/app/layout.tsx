@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { cookies } from 'next/headers';
 
 import { ThemeToggle } from '@/components/molecules/ThemeToggle';
+import { CookieConsent } from '@/components/organisms/CookieConsent';
 import { Footer } from '@/components/organisms/Footer';
 import { Sidebar } from '@/components/organisms/Sidebar';
 import { RootProvider } from '@/components/providers/RootProvider';
@@ -41,7 +42,7 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <RootProvider>
-            <div className='fixed top-4 right-4'>
+            <div className='fixed top-4 right-4 z-40'>
               <ThemeToggle />
             </div>
             <Sidebar defaultOpen={defaultSidebarOpen}>
@@ -50,6 +51,7 @@ export default async function RootLayout({
                 <Footer />
               </div>
             </Sidebar>
+            <CookieConsent variant='default' />
           </RootProvider>
         </NextIntlClientProvider>
       </body>

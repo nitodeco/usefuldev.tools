@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { useAnalytics } from '@/hooks/use-analytics';
 import { htmlToMarkdown, markdownToHtml } from '@/lib/markdown';
 
 import { ConversionMode } from '../types';
 
 export const useMarkdownOperations = () => {
+  const { track } = useAnalytics();
   const [markdownInput, setMarkdownInput] = useState<string>('');
   const [htmlInput, setHtmlInput] = useState<string>('');
   const [mode, setMode] = useState<ConversionMode>('markdown-to-html');
@@ -56,7 +58,8 @@ export const useMarkdownOperations = () => {
     setMarkdownInput('');
     setHtmlInput('');
     setConvertedOutput('');
-  }, []);
+    track('markdown_cleared');
+  }, [track]);
 
   useEffect(() => {
     if (mode === 'markdown-to-html' && markdownInput) {
@@ -67,8 +70,9 @@ export const useMarkdownOperations = () => {
       const markdown = htmlToMarkdown(htmlInput);
 
       setConvertedOutput(markdown);
+      track('html_to_markdown_converted', { html_length: htmlInput.length, markdown_length: markdown.length });
     }
-  }, [mode, markdownInput, htmlInput]);
+  }, [mode, markdownInput, htmlInput, track]);
 
   return {
     markdownInput,

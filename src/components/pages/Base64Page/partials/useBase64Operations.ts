@@ -2,13 +2,15 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-import posthog from 'posthog-js';
+import { useAnalytics } from '@/hooks/use-analytics';
 
 import type { Base64FileInfo, Base64InputType, Base64Mode } from '../types';
 
 const MAX_FILE_SIZE = 10 * 1_024 * 1_024; // 10MB
 
 export const useBase64Operations = () => {
+  const { track } = useAnalytics();
+
   const [mode, setMode] = useState<Base64Mode>('encode');
   const [inputType, setInputType] = useState<Base64InputType>('text');
   const [inputText, setInputText] = useState<string>('');
@@ -149,7 +151,7 @@ export const useBase64Operations = () => {
 
         setIsValid(true);
 
-        posthog.capture('base64_file_uploaded', {
+        track('base64_file_uploaded', {
           mode,
           file_type: file.type,
           file_size: file.size,
@@ -164,7 +166,7 @@ export const useBase64Operations = () => {
         setIsConverting(false);
       }
     },
-    [mode],
+    [mode, track],
   );
 
   const downloadAsFile = useCallback(() => {
@@ -207,7 +209,7 @@ export const useBase64Operations = () => {
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
 
-      posthog.capture('base64_file_downloaded', {
+      track('base64_file_downloaded', {
         mode,
         file_type: blob.type,
         file_size: blob.size,
@@ -216,7 +218,7 @@ export const useBase64Operations = () => {
     } catch (downloadError) {
       setError(`Failed to download file: ${downloadError instanceof Error ? downloadError.message : 'Unknown error'}`);
     }
-  }, [outputText, isValid, mode, fileInfo]);
+  }, [outputText, isValid, mode, fileInfo, track]);
 
   const convert = useCallback(async () => {
     if (!inputText && inputType === 'text') {
@@ -271,7 +273,7 @@ export const useBase64Operations = () => {
       setOutputText(result);
       setIsValid(valid);
 
-      posthog.capture('base64_converted', {
+      track('base64_converted', {
         mode,
         input_type: inputType,
         input_length: inputText.length,
@@ -288,7 +290,7 @@ export const useBase64Operations = () => {
     } finally {
       setIsConverting(false);
     }
-  }, [inputText, inputType, mode, fileInfo, outputText]);
+  }, [inputText, inputType, mode, fileInfo, outputText, track]);
 
   useEffect(() => {
     convert();
@@ -300,6 +302,8 @@ export const useBase64Operations = () => {
     setError(undefined);
     setIsValid(true);
     setFileInfo(undefined);
+
+    track('base64_cleared');
   };
 
   useEffect(() => {
