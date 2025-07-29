@@ -214,7 +214,7 @@ export const useBase64Operations = () => {
         filename_length: filename.length,
       });
     } catch (downloadError) {
-      setError('Failed to download file');
+      setError(`Failed to download file: ${downloadError instanceof Error ? downloadError.message : 'Unknown error'}`);
     }
   }, [outputText, isValid, mode, fileInfo]);
 

@@ -1,4 +1,4 @@
-import { Home, Terminal } from 'lucide-react';
+import { Home } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import Link from 'next/link';

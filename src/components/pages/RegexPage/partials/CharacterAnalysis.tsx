@@ -11,8 +11,6 @@ interface CharacterAnalysisProps {
 }
 
 export const CharacterAnalysis: React.FC<CharacterAnalysisProps> = ({ testString, isValidRegex, characterMatches }) => {
-  const t = useTranslations('regex');
-
   if (!testString.trim() || !isValidRegex || characterMatches.length === 0) {
     return null;
   }

@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 
 import { type FilterCategory, filterOptions, pages } from '@/config/pages';
