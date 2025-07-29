@@ -55,7 +55,7 @@ export const HomePage: React.FC = () => {
 
       <div className='space-y-4'>
         {filteredPages.length > 0 ? (
-          <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5'>
+          <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 auto-rows-fr'>
             {filteredPages.map((page) => {
               return <ToolCard key={page.key} page={page} />;
             })}

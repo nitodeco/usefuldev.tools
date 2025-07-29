@@ -18,9 +18,9 @@ export const ToolCard: React.FC<Props> = ({ page }) => {
   const t = useTranslations(`tools.${toolKey}`);
 
   return (
-    <Link key={page.key} href={page.href} className='group'>
-      <Card className='h-full border-1 hover:border-primary/20 cursor-pointer py-2'>
-        <CardHeader className='space-y-1 p-4'>
+    <Link key={page.key} href={page.href} className='group h-full flex'>
+      <Card className='h-full w-full border-1 hover:border-primary/20 cursor-pointer py-2 flex flex-col'>
+        <CardHeader className='space-y-1 p-4 flex-1'>
           <div className='flex items-start justify-between'>
             <div className='flex items-center gap-3'>
               {page.icon && <page.icon className='h-5 w-5 text-muted-foreground' />}
