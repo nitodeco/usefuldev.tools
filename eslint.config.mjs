@@ -15,17 +15,17 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const nextConfig = compat.extends('next/core-web-vitals', 'next/typescript');
+const nextConfig = compat.extends('next/core-web-vitals');
 
 /**
  * @type {import('eslint').Linter.Config[]}
  */
 export default [
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
   stylistic.configs.recommended,
   eslintConfigPrettier,
   ...nextConfig,
+  ...tseslint.configs.recommended,
   {
     ignores: ['dist/*', 'node_modules/*', '**/components/ui/*'],
   },
@@ -50,7 +50,6 @@ export default [
       reportUnusedDisableDirectives: true,
     },
     plugins: {
-      '@typescript-eslint': tseslint.plugin,
       '@stylistic': stylistic,
     },
     settings: {

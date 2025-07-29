@@ -30,6 +30,7 @@ import { pages } from '@/config/pages';
 export const Sidebar: React.FC<{ children: ReactNode }> = ({ children }) => {
   const t = useTranslations();
   const router = useRouter();
+
   return (
     <SidebarProvider>
       <SidebarPrimitive collapsible='icon' className='group'>
