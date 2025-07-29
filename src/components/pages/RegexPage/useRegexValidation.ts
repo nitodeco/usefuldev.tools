@@ -1,0 +1,103 @@
+import { useEffect, useState } from 'react';
+
+import posthog from 'posthog-js';
+
+import type { MatchType, RegexValidationResult, UseRegexValidationReturn } from './types';
+
+const VALIDATION_DELAY = 300;
+
+export const useRegexValidation = (): UseRegexValidationReturn => {
+  const [regexPattern, setRegexPattern] = useState<string>('');
+  const [testString, setTestString] = useState<string>('');
+  const [validationResult, setValidationResult] = useState<RegexValidationResult>({
+    isValid: null,
+    error: '',
+    testMatches: null,
+    characterMatches: [],
+  });
+
+  const validateRegex = (pattern: string, testStr: string = '') => {
+    if (!pattern.trim()) {
+      setValidationResult({
+        isValid: null,
+        error: '',
+        testMatches: null,
+        characterMatches: [],
+      });
+      return;
+    }
+
+    try {
+      const regex = new RegExp(pattern);
+      let matchResult: MatchType = null;
+      let charMatches: boolean[] = [];
+
+      if (testStr.trim()) {
+        const partialMatch = regex.test(testStr);
+
+        charMatches = Array.from(testStr).map((char) => {
+          try {
+            return regex.test(char);
+          } catch {
+            return false;
+          }
+        });
+
+        if (!partialMatch) {
+          matchResult = 'none';
+        } else {
+          const remainingAfterMatches = testStr.replace(new RegExp(pattern, 'g'), '');
+          const isFullMatch = remainingAfterMatches === '';
+          matchResult = isFullMatch ? 'full' : 'partial';
+        }
+      }
+
+      setValidationResult({
+        isValid: true,
+        error: '',
+        testMatches: matchResult,
+        characterMatches: charMatches,
+      });
+
+      posthog.capture('regex_validated', {
+        pattern_length: pattern.length,
+        is_valid: true,
+        has_test_string: !!testStr.trim(),
+        test_matches: matchResult,
+      });
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Invalid regex pattern';
+
+      setValidationResult({
+        isValid: false,
+        error: errorMessage,
+        testMatches: null,
+        characterMatches: [],
+      });
+
+      posthog.capture('regex_validated', {
+        pattern_length: pattern.length,
+        is_valid: false,
+        has_test_string: !!testStr.trim(),
+        test_matches: null,
+        error: errorMessage,
+      });
+    }
+  };
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      validateRegex(regexPattern, testString);
+    }, VALIDATION_DELAY);
+
+    return () => clearTimeout(timeoutId);
+  }, [regexPattern, testString]);
+
+  return {
+    regexPattern,
+    setRegexPattern,
+    testString,
+    setTestString,
+    validationResult,
+  };
+};
