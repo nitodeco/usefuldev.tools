@@ -16,7 +16,6 @@ export const ToolCard: React.FC<Props> = ({ page }) => {
   const t = useTranslations('home');
 
   const toolKey = page.key.split('.')[1];
-  const category = page.category;
 
   return (
     <Link key={page.key} href={page.href} className='group'>

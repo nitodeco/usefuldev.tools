@@ -51,6 +51,7 @@ export const UuidPage: React.FC = () => {
 
   useEffect(() => {
     handleGenerate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const uuidVersions: { value: UuidVersion; label: string }[] = [

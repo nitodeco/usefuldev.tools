@@ -10,7 +10,6 @@ const turndownService = new TurndownService({
   emDelimiter: '_',
 });
 
-// Configure marked to be synchronous
 marked.use({
   async: false,
 });
@@ -19,7 +18,7 @@ export const markdownToHtml = (markdown: string): string => {
   if (!markdown) return '';
 
   try {
-    const html = marked(markdown) as string;
+    const html = marked(markdown).toString();
 
     if (typeof window !== 'undefined') {
       return DOMPurify.sanitize(html);

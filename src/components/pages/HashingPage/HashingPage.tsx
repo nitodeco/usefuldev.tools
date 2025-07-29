@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 
 import bcrypt from 'bcryptjs';
 import CryptoJS from 'crypto-js';
-import { Check, Copy } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import posthog from 'posthog-js';
 import xxhash from 'xxhash-wasm';

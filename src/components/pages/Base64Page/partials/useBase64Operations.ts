@@ -6,7 +6,7 @@ import posthog from 'posthog-js';
 
 import type { Base64FileInfo, Base64InputType, Base64Mode } from '../types';
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+const MAX_FILE_SIZE = 10 * 1_024 * 1_024; // 10MB
 
 export const useBase64Operations = () => {
   const [mode, setMode] = useState<Base64Mode>('encode');

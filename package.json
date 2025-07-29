@@ -1,5 +1,9 @@
 {
-    "name": "nextjs-template",
+    "name": "usefuldev.tools",
+    "description": "A set of useful, client-side tools for developers.",
+    "author": "nitodeco",
+    "repository": "https://github.com/nitodeco/usefuldev.tools",
+    "homepage": "https://usefuldev.tools",
     "version": "0.1.0",
     "private": false,
     "type": "module",

@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import { Wrench } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation';
 
 import {
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -22,8 +21,6 @@ import {
   SidebarProvider,
   useSidebar,
 } from '@/components/ui/sidebar';
-
-import { ThemeToggle } from '@/components/molecules/ThemeToggle';
 
 import { pages } from '@/config/pages';
 
@@ -56,10 +53,12 @@ export const Sidebar: React.FC<{ children: ReactNode }> = ({ children }) => {
               <SidebarMenu>
                 {pages.map((page) => (
                   <SidebarMenuItem key={page.key}>
-                    <SidebarMenuButton asChild tooltip={t(page.key as any)}>
+                    {/* @ts-expect-error */}
+                    <SidebarMenuButton asChild tooltip={t(page.key)}>
                       <a href={page.href} onClick={() => posthog.capture(`${page.key} clicked`)}>
                         {page.icon && <page.icon className='h-4 w-4' />}
-                        <span className='group-data-[collapsible=icon]:sr-only'>{t(page.key as any)}</span>
+                        {/* @ts-expect-error */}
+                        <span className='group-data-[collapsible=icon]:sr-only'>{t(page.key)}</span>
                       </a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

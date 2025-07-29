@@ -2,8 +2,6 @@ import React from 'react';
 
 import { useTranslations } from 'next-intl';
 
-import { Separator } from '@/components/ui/separator';
-
 export const HomePageHero: React.FC = () => {
   const t = useTranslations('home');
 
