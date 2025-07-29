@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 
+import bcrypt from 'bcryptjs';
 import CryptoJS from 'crypto-js';
 import { Check, Copy } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -45,10 +46,9 @@ export const HashingPage: React.FC = () => {
       case 'sha512':
         return CryptoJS.SHA512(text).toString();
       case 'bcrypt': {
-        const bcrypt = await import('bcryptjs');
         const salt = await bcrypt.genSalt(10);
 
-        return bcrypt.hash(text, salt);
+        return bcrypt.hashSync(text, salt);
       }
       case 'xxhash': {
         const hasher = await xxhash();
@@ -61,7 +61,6 @@ export const HashingPage: React.FC = () => {
   };
 
   const handleGenerate = async () => {
-
     if (!inputText) {
       setHashedValue('');
 

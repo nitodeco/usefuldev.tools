@@ -39,6 +39,7 @@ export const UuidPage: React.FC = () => {
 
   const handleGenerate = () => {
     const newUuid = generateUuid(selectedVersion);
+
     setGeneratedUuid(newUuid);
     setCopied(false);
 

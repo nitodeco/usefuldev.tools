@@ -24,6 +24,7 @@ export const useRegexValidation = (): UseRegexValidationReturn => {
         testMatches: null,
         characterMatches: [],
       });
+
       return;
     }
 
@@ -54,6 +55,7 @@ export const useRegexValidation = (): UseRegexValidationReturn => {
 
           const remainingAfterMatches = testStr.replace(globalRegex, '');
           const isFullMatch = remainingAfterMatches === '';
+
           matchResult = isFullMatch ? 'full' : 'partial';
         }
       }
