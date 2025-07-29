@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 import { Badge } from '@/components/ui/badge';
 
 import { Button } from '@/components/atoms/Button';
+import { CopyButton } from '@/components/molecules/CopyButton';
 
 import { copyToClipboard } from '@/lib/copy';
 
@@ -93,14 +94,7 @@ export const Base64OutputSection: React.FC<Base64OutputSectionProps> = ({
                   <Download className='h-4 w-4' />
                 </Button>
               )}
-              <Button
-                variant='outline'
-                size='sm'
-                onClick={() => copyToClipboard(outputText, setCopied)}
-                title={t('output.copyToClipboard')}
-              >
-                {copied ? <Check className='h-4 w-4 text-green-500' /> : <Copy className='h-4 w-4' />}
-              </Button>
+              <CopyButton value={outputText} onCopy={() => copyToClipboard(outputText, setCopied)} copied={copied} />
             </div>
           </div>
 

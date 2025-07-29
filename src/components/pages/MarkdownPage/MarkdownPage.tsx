@@ -1,22 +1,25 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTranslations } from 'next-intl';
+
 import { RefreshCw } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+
 import { Button } from '@/components/atoms/Button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
 import { copyToClipboard } from '@/lib/copy';
-import { useMarkdownOperations } from './partials/useMarkdownOperations';
+
 import { InputSection } from './partials/InputSection';
+import { MarkdownModeSelect } from './partials/MarkdownModeSelect';
 import { OutputSection } from './partials/OutputSection';
 import { PreviewSection } from './partials/PreviewSection';
-import { ConversionMode } from './types';
+import { useMarkdownOperations } from './partials/useMarkdownOperations';
 
 export const MarkdownPage: React.FC = () => {
   const t = useTranslations('markdown');
   const [copiedMarkdown, setCopiedMarkdown] = useState(false);
   const [copiedHtml, setCopiedHtml] = useState(false);
-  
+
   const {
     markdownInput,
     htmlInput,
@@ -39,38 +42,22 @@ export const MarkdownPage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 max-w-7xl space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">{t('title')}</h1>
-        <p className="text-muted-foreground">{t('description')}</p>
+    <div className='container mx-auto p-6 max-w-7xl space-y-8'>
+      <div className='space-y-2'>
+        <h1 className='text-3xl font-bold tracking-tight'>{t('title')}</h1>
+        <p className='text-muted-foreground'>{t('description')}</p>
       </div>
 
-      <div className="flex items-center justify-between">
-        <Select value={mode} onValueChange={(value: ConversionMode) => handleModeChange(value)}>
-          <SelectTrigger className="w-64">
-            <SelectValue placeholder={t('conversionMode')} />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="markdown-to-html">
-              {t('markdownToHtml')}
-            </SelectItem>
-            <SelectItem value="html-to-markdown">
-              {t('htmlToMarkdown')}
-            </SelectItem>
-          </SelectContent>
-        </Select>
+      <div className='flex items-center justify-between'>
+        <MarkdownModeSelect mode={mode} handleModeChange={handleModeChange} />
 
-        <Button 
-          variant="outline" 
-          onClick={clearAll}
-          disabled={!markdownInput && !htmlInput}
-        >
-          <RefreshCw className="h-4 w-4 mr-2" />
+        <Button variant='outline' onClick={clearAll} disabled={!markdownInput && !htmlInput}>
+          <RefreshCw className='h-4 w-4 mr-2' />
           {t('clearAll')}
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
         {mode === 'markdown-to-html' ? (
           <>
             <InputSection
@@ -78,6 +65,8 @@ export const MarkdownPage: React.FC = () => {
               onChange={handleMarkdownChange}
               placeholder={t('markdownPlaceholder')}
               label={t('markdownInput')}
+              onCopy={handleCopyMarkdown}
+              copied={copiedMarkdown}
             />
             <OutputSection
               value={convertedOutput}
@@ -93,6 +82,8 @@ export const MarkdownPage: React.FC = () => {
               onChange={handleHtmlChange}
               placeholder={t('htmlPlaceholder')}
               label={t('htmlOutput')}
+              onCopy={handleCopyHtml}
+              copied={copiedHtml}
             />
             <OutputSection
               value={convertedOutput}
@@ -105,11 +96,8 @@ export const MarkdownPage: React.FC = () => {
       </div>
 
       {mode === 'markdown-to-html' && convertedOutput && (
-        <div className="mt-8">
-          <PreviewSection
-            html={convertedOutput}
-            label={t('preview')}
-          />
+        <div className='mt-8'>
+          <PreviewSection html={convertedOutput} label={t('preview')} />
         </div>
       )}
     </div>

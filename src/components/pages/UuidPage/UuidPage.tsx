@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { Check, Copy } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import posthog from 'posthog-js';
 import { v1 as uuidv1, v4 as uuidv4, v6 as uuidv6, v7 as uuidv7 } from 'uuid';
@@ -11,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 import { Button } from '@/components/atoms/Button';
+import { CopyButton } from '@/components/molecules/CopyButton';
 
 import { copyToClipboard } from '@/lib/copy';
 
@@ -93,9 +93,11 @@ export const UuidPage: React.FC = () => {
               {selectedVersion.toUpperCase()}
             </Badge>
             <code className='text-lg font-mono flex-1 break-all'>{generatedUuid}</code>
-            <Button variant='outline' size='sm' onClick={() => copyToClipboard(generatedUuid, setCopied)}>
-              {copied ? <Check className='h-4 w-4 text-green-500' /> : <Copy className='h-4 w-4' />}
-            </Button>
+            <CopyButton
+              value={generatedUuid}
+              onCopy={() => copyToClipboard(generatedUuid, setCopied)}
+              copied={copied}
+            />
           </div>
         )}
       </div>

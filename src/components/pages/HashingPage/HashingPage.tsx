@@ -14,6 +14,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 import { Button } from '@/components/atoms/Button';
+import { CopyButton } from '@/components/molecules/CopyButton';
 
 import { copyToClipboard } from '@/lib/copy';
 
@@ -142,9 +143,7 @@ export const HashingPage: React.FC = () => {
                 {usedAlgorithm.toUpperCase()}
               </Badge>
               <code className='text-lg font-mono flex-1 break-all'>{hashedValue}</code>
-              <Button variant='outline' size='sm' onClick={() => copyToClipboard(hashedValue, setCopied)}>
-                {copied ? <Check className='h-4 w-4 text-green-500' /> : <Copy className='h-4 w-4' />}
-              </Button>
+              <CopyButton value={hashedValue} onCopy={() => copyToClipboard(hashedValue, setCopied)} copied={copied} />
             </div>
           </div>
         )}

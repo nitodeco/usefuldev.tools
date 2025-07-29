@@ -2,12 +2,13 @@
 
 import React, { useState } from 'react';
 
-import { Check, Copy, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { Button } from '@/components/atoms/Button';
+import { CopyButton } from '@/components/molecules/CopyButton';
 
 import { copyToClipboard } from '@/lib/copy';
 
@@ -27,18 +28,8 @@ export const CsvOutputSection: React.FC<CsvOutputSectionProps> = ({ outputText, 
           <CardTitle className='text-xl'>{t('output')}</CardTitle>
           {outputText && (
             <div className='flex items-center gap-2'>
-              <Button
-                variant='outline'
-                size='sm'
-                onClick={() => copyToClipboard(outputText, setCopied)}
-              >
-                {copied ? (
-                  <Check className='h-4 w-4 text-green-500' />
-                ) : (
-                  <Copy className='h-4 w-4' />
-                )}
-                <span className='ml-2'>{t('copyOutput')}</span>
-              </Button>
+              <CopyButton value={outputText} onCopy={() => copyToClipboard(outputText, setCopied)} copied={copied} />
+
               <Button variant='outline' size='sm' onClick={onDownload}>
                 <Download className='h-4 w-4' />
                 <span className='ml-2'>{t('downloadFile')}</span>
