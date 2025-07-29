@@ -24,7 +24,8 @@
         "hash": "Hash Generator",
         "markdown": "Markdown Converter",
         "csv": "CSV/JSON Converter",
-        "base64": "Base64 Converter"
+        "base64": "Base64 Converter",
+        "filesize": "File Size Converter"
     },
     "home": {
         "title": "Useful Developer Tools",
@@ -69,6 +70,11 @@
             "markdown": {
                 "title": "Markdown Converter",
                 "description": "Convert between Markdown and HTML in real-time",
+                "category": "converters"
+            },
+            "filesize": {
+                "title": "File Size Converter",
+                "description": "Convert between different file size units",
                 "category": "converters"
             }
         },
@@ -211,5 +217,40 @@
         "conversionMode": "Conversion Mode",
         "markdownToHtml": "Markdown to HTML",
         "htmlToMarkdown": "HTML to Markdown"
+    },
+    "filesize": {
+        "title": "File Size Converter",
+        "description": "Convert between different file size units (binary and decimal)",
+        "inputValue": "Input Value",
+        "inputUnit": "Input Unit",
+        "outputUnit": "Output Unit",
+        "result": "Result",
+        "convert": "Convert",
+        "valuePlaceholder": "Enter value",
+        "selectInputUnit": "Select input unit",
+        "selectOutputUnit": "Select output unit",
+        "units": {
+            "B": "Bytes (B)",
+            "KB": "Kilobytes (KB)",
+            "MB": "Megabytes (MB)",
+            "GB": "Gigabytes (GB)",
+            "TB": "Terabytes (TB)",
+            "PB": "Petabytes (PB)",
+            "EB": "Exabytes (EB)",
+            "ZB": "Zettabytes (ZB)",
+            "YB": "Yottabytes (YB)",
+            "KiB": "Kibibytes (KiB)",
+            "MiB": "Mebibytes (MiB)",
+            "GiB": "Gibibytes (GiB)",
+            "TiB": "Tebibytes (TiB)",
+            "PiB": "Pebibytes (PiB)",
+            "EiB": "Exbibytes (EiB)",
+            "ZiB": "Zebibytes (ZiB)",
+            "YiB": "Yobibytes (YiB)"
+        },
+        "binaryUnits": "Binary Units (Base 1024)",
+        "decimalUnits": "Decimal Units (Base 1000)",
+        "allConversions": "All Conversions",
+        "invalidValue": "Please enter a valid number"
     }
 }
