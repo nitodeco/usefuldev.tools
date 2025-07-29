@@ -24,6 +24,7 @@ export const HashingPage: React.FC = () => {
   const [selectedAlgorithm, setSelectedAlgorithm] = useState<HashAlgorithm>('sha256');
   const [inputText, setInputText] = useState<string>('');
   const [hashedValue, setHashedValue] = useState<string>('');
+  const [usedAlgorithm, setUsedAlgorithm] = useState<HashAlgorithm>('sha256');
   const [copied, setCopied] = useState<boolean>(false);
   const [isHashing, setIsHashing] = useState<boolean>(false);
 
@@ -63,6 +64,7 @@ export const HashingPage: React.FC = () => {
   const handleGenerate = async () => {
     if (!inputText) {
       setHashedValue('');
+      setUsedAlgorithm(selectedAlgorithm);
 
       return;
     }
@@ -76,6 +78,7 @@ export const HashingPage: React.FC = () => {
       const endTime = performance.now();
 
       setHashedValue(hash);
+      setUsedAlgorithm(selectedAlgorithm);
 
       posthog.capture('hash_generated', {
         algorithm: selectedAlgorithm,
@@ -102,18 +105,23 @@ export const HashingPage: React.FC = () => {
         <div className='space-y-4'>
           <div className='flex items-center justify-between'>
             <h2 className='text-xl font-semibold'>{t('inputText')}</h2>
-            <Select value={selectedAlgorithm} onValueChange={(value: HashAlgorithm) => setSelectedAlgorithm(value)}>
-              <SelectTrigger className='w-48'>
-                <SelectValue placeholder={t('selectAlgorithm')} />
-              </SelectTrigger>
-              <SelectContent>
-                {hashAlgorithms.map((algorithm) => (
-                  <SelectItem key={algorithm.value} value={algorithm.value}>
-                    {algorithm.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <div className='flex items-center justify-end gap-3'>
+              <Select value={selectedAlgorithm} onValueChange={(value: HashAlgorithm) => setSelectedAlgorithm(value)}>
+                <SelectTrigger className='w-48'>
+                  <SelectValue placeholder={t('selectAlgorithm')} />
+                </SelectTrigger>
+                <SelectContent>
+                  {hashAlgorithms.map((algorithm) => (
+                    <SelectItem key={algorithm.value} value={algorithm.value}>
+                      {algorithm.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Button onClick={handleGenerate} disabled={isHashing}>
+                {isHashing ? t('generating') : t('generateHash')}
+              </Button>
+            </div>
           </div>
 
           <div className='space-y-3'>
@@ -123,9 +131,6 @@ export const HashingPage: React.FC = () => {
               placeholder={t('inputPlaceholder')}
               className='w-full'
             />
-            <Button onClick={handleGenerate} disabled={isHashing}>
-              {isHashing ? t('generating') : t('generateHash')}
-            </Button>
           </div>
         </div>
 
@@ -134,7 +139,7 @@ export const HashingPage: React.FC = () => {
             <h2 className='text-xl font-semibold mb-3'>{t('result')}</h2>
             <div className='flex items-center gap-3 p-6 rounded-lg border'>
               <Badge variant='secondary' className='text-sm'>
-                {selectedAlgorithm.toUpperCase()}
+                {usedAlgorithm.toUpperCase()}
               </Badge>
               <code className='text-lg font-mono flex-1 break-all'>{hashedValue}</code>
               <Button variant='outline' size='sm' onClick={() => copyToClipboard(hashedValue, setCopied)}>
