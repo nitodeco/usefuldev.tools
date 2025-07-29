@@ -14,6 +14,11 @@ declare const messages: {
         "description": "The page you are looking for does not exist.",
         "returnHome": "Return Home"
     },
+    "footer": {
+        "github": "View on GitHub",
+        "coffee": "Buy me a coffee",
+        "copyright": "Copyright © {year} Nico Möhn"
+    },
     "pages": {
         "home": "Home",
         "uuid": "UUID Generator",
@@ -21,6 +26,39 @@ declare const messages: {
         "jwt": "JWT Decoder",
         "hash": "Hash Generator",
         "csv": "CSV/JSON Converter"
+    },
+    "home": {
+        "title": "Useful Developer Tools",
+        "description": "A collection of useful development tools to boost your productivity",
+        "search": {
+            "placeholder": "Search tools...",
+            "noResults": "No tools found matching your search"
+        },
+        "filters": {
+            "all": "All Tools",
+            "cryptography": "Cryptography",
+            "generators": "Generators",
+            "testing": "Testing",
+            "converters": "Converters"
+        },
+        "tools": {
+            "uuid": {
+                "title": "UUID Generator",
+                "description": "Generate unique identifiers for your applications",
+                "category": "generators"
+            },
+            "regex": {
+                "title": "Regex Tester",
+                "description": "Test and validate regular expressions with real-time feedback",
+                "category": "testing"
+            },
+            "hash": {
+                "title": "Hash Generator",
+                "description": "Generate cryptographic hashes using various algorithms",
+                "category": "cryptography"
+            }
+        },
+        "visitTool": "Open Tool"
     },
     "themeToggle": {
         "toggleTheme": "Toggle Theme"

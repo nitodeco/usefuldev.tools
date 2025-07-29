@@ -75,7 +75,7 @@ export const Sidebar: React.FC<{ children: ReactNode }> = ({ children }) => {
         </SidebarFooter>
         <SidebarBorderToggle />
       </SidebarPrimitive>
-      <main className='flex-1 p-6'>{children}</main>
+      <main className='flex-1 flex flex-col min-h-screen'>{children}</main>
     </SidebarProvider>
   );
 };

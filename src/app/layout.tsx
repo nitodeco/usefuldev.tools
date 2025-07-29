@@ -4,8 +4,9 @@ import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
+import { Footer } from '@/components/organisms/Footer';
 import { Sidebar } from '@/components/organisms/Sidebar';
-import { RootProvider } from '@/components/providers/RootProvider/RootProvider';
+import { RootProvider } from '@/components/providers/RootProvider';
 
 import './globals.css';
 
@@ -39,7 +40,12 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <RootProvider>
-            <Sidebar>{children}</Sidebar>
+            <Sidebar>
+              <div className='flex flex-col flex-1'>
+                <div className='flex-1 p-6'>{children}</div>
+                <Footer />
+              </div>
+            </Sidebar>
           </RootProvider>
         </NextIntlClientProvider>
       </body>
