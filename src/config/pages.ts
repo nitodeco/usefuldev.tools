@@ -35,6 +35,10 @@ export const pages: Page[] = [
     href: '/base64',
     category: 'converters',
   },
+  {
+    key: 'pages.markdown',
+    href: '/markdown',
+  },
 ];
 
 export const filterOptions: FilterCategory[] = ['all', 'cryptography', 'generators', 'testing', 'converters'];
