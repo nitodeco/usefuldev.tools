@@ -8,6 +8,7 @@
     "private": false,
     "type": "module",
     "license": "MIT",
+    "packageManager": "pnpm@10.13.1",
     "scripts": {
         "dev": "next dev --turbopack",
         "build": "next build",
@@ -16,7 +17,7 @@
         "lint:fix": "next lint --fix",
         "format": "prettier --write .",
         "test": "vitest run --passWithNoTests",
-        "test:watch": "vitest watch",
+        "test:watch": "vitest watch --passWithNoTests",
         "reset": "rimraf .next dist node_modules && pnpm install",
         "prepare": "husky"
     },
@@ -34,7 +35,7 @@
         "crypto-js": "^4.2.0",
         "dedent": "^1.6.0",
         "dompurify": "^3.2.6",
-        "lucide-react": "^0.532.0",
+        "lucide-react": "^0.533.0",
         "marked": "^16.1.1",
         "next": "15.4.4",
         "next-intl": "^4.3.4",
