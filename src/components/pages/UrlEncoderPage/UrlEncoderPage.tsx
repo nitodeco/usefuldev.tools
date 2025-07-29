@@ -10,15 +10,7 @@ import { useUrlOperations } from './partials/useUrlOperations';
 
 export const UrlEncoderPage: React.FC = () => {
   const t = useTranslations('urlEncoder');
-  const {
-    input,
-    setInput,
-    mode,
-    setMode,
-    useComponentEncoding,
-    setUseComponentEncoding,
-    result,
-  } = useUrlOperations();
+  const { input, setInput, mode, setMode, useComponentEncoding, setUseComponentEncoding, result } = useUrlOperations();
 
   return (
     <div className='container mx-auto p-6 max-w-4xl space-y-8'>
@@ -38,13 +30,6 @@ export const UrlEncoderPage: React.FC = () => {
         />
 
         <UrlOutputSection result={result} />
-
-        <div className='rounded-lg border p-4 space-y-2'>
-          <h3 className='text-sm font-medium'>{t('encodingInfo.title')}</h3>
-          <p className='text-sm text-muted-foreground'>
-            {useComponentEncoding ? t('encodingInfo.component') : t('encodingInfo.standard')}
-          </p>
-        </div>
       </div>
     </div>
   );

@@ -1,4 +1,14 @@
-import { LucideIcon } from 'lucide-react';
+import {
+  CodeIcon,
+  FileIcon,
+  HashIcon,
+  LinkIcon,
+  LucideIcon,
+  RectangleEllipsis,
+  RectangleEllipsisIcon,
+  RegexIcon,
+  Table2Icon,
+} from 'lucide-react';
 
 export type FilterCategory = 'all' | 'cryptography' | 'generators' | 'testing' | 'converters';
 
@@ -19,31 +29,37 @@ export const pages: Page[] = [
     key: 'pages.regex',
     href: '/regex',
     category: 'testing',
+    icon: RegexIcon,
   },
   {
     key: 'pages.hash',
     href: '/hash',
     category: 'cryptography',
+    icon: HashIcon,
   },
   {
     key: 'pages.csv',
     href: '/csv',
     category: 'converters',
+    icon: Table2Icon,
   },
   {
     key: 'pages.base64',
     href: '/base64',
     category: 'converters',
+    icon: RectangleEllipsisIcon,
   },
   {
     key: 'pages.markdown',
     href: '/markdown',
     category: 'converters',
+    icon: CodeIcon,
   },
   {
     key: 'pages.urlEncoder',
     href: '/url-encoder',
     category: 'converters',
+    icon: LinkIcon,
   },
 ];
 

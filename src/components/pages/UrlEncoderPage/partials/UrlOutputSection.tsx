@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 
-import { AlertCircle, Check, Copy } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-
-import { Button } from '@/components/atoms/Button';
+import { CopyButton } from '@/components/molecules/CopyButton';
 
 import { copyToClipboard } from '@/lib/copy';
 
@@ -20,53 +16,43 @@ export const UrlOutputSection: React.FC<UrlOutputSectionProps> = ({ result }) =>
   const t = useTranslations('urlEncoder');
   const [copied, setCopied] = useState<boolean>(false);
 
-  const handleCopy = () => {
-    if (result.result.output) {
-      copyToClipboard(result.result.output, setCopied);
-    }
-  };
+  if (!result.result.output && !result.result.error) {
+    return null;
+  }
+
+  const canCopy = result.result.output && result.result.isValid;
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className='flex items-center justify-between'>
-          <span>{t('output')}</span>
-          <div className='flex items-center gap-2'>
-            {result.result.isValid ? (
-              <Badge variant='secondary' className='text-green-600'>
-                {t('valid')}
-              </Badge>
-            ) : (
-              <Badge variant='secondary' className='text-red-600'>
-                {t('invalid')}
-              </Badge>
-            )}
-            <Button
-              variant='outline'
-              size='sm'
-              onClick={handleCopy}
-              disabled={!result.result.output || !result.result.isValid}
-            >
-              {copied ? <Check className='h-4 w-4 text-green-500' /> : <Copy className='h-4 w-4' />}
-            </Button>
+    <div className='space-y-4'>
+      <div className='flex items-center justify-between'>
+        <h2 className='text-xl font-semibold'>{t('output')}</h2>
+      </div>
+
+      {result.result.output && result.result.isValid && (
+        <div className='space-y-3'>
+          <div className='relative p-4 rounded-lg border bg-muted/50 group overflow-hidden'>
+            <pre className='text-sm font-mono whitespace-pre-wrap break-words word-break-break-all pr-12 w-full overflow-x-auto'>
+              {result.result.output}
+            </pre>
+
+            <div className='absolute top-2 right-2 flex gap-1'>
+              {canCopy && (
+                <CopyButton
+                  value={result.result.output}
+                  onCopy={() => copyToClipboard(result.result.output, setCopied)}
+                  copied={copied}
+                />
+              )}
+            </div>
           </div>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        {result.result.error ? (
-          <div className='flex items-center gap-2 text-red-600'>
-            <AlertCircle className='h-4 w-4' />
-            <span className='text-sm'>{result.result.error}</span>
-          </div>
-        ) : (
-          <textarea
-            className='w-full h-40 p-3 border border-input rounded-md resize-none font-mono text-sm bg-muted'
-            value={result.result.output}
-            readOnly
-            placeholder={t('outputPlaceholder')}
-          />
-        )}
-      </CardContent>
-    </Card>
+        </div>
+      )}
+
+      {result.result.error && !result.result.isValid && (
+        <div className='p-4 rounded-lg border border-destructive/20 bg-destructive/5'>
+          <p className='text-sm text-destructive'>{result.result.error}</p>
+        </div>
+      )}
+    </div>
   );
 };
