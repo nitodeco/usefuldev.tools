@@ -88,7 +88,7 @@ export const Base64OutputSection: React.FC<Base64OutputSectionProps> = ({
               </div>
             )}
 
-            <div className='absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity'>
+            <div className='absolute top-2 right-2 flex gap-1'>
               {canDownload && isFileMode && (
                 <Button variant='outline' size='sm' onClick={onDownloadFile} title={t('downloadFile')}>
                   <Download className='h-4 w-4' />
