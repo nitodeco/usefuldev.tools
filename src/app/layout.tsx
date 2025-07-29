@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 
 import { Geist, Geist_Mono } from 'next/font/google';
+import { cookies } from 'next/headers';
 
 import { ThemeToggle } from '@/components/molecules/ThemeToggle';
 import { Footer } from '@/components/organisms/Footer';
@@ -31,6 +32,10 @@ export default async function RootLayout({
 }>) {
   const [messages, locale] = await Promise.all([getMessages(), getLocale()]);
 
+  const cookieStore = await cookies();
+  const sidebarState = cookieStore.get('sidebar_state');
+  const defaultSidebarOpen = sidebarState?.value === 'true';
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
@@ -39,7 +44,7 @@ export default async function RootLayout({
             <div className='fixed top-4 right-4'>
               <ThemeToggle />
             </div>
-            <Sidebar>
+            <Sidebar defaultOpen={defaultSidebarOpen}>
               <div className='flex flex-col flex-1'>
                 <div className='flex-1 p-6'>{children}</div>
                 <Footer />

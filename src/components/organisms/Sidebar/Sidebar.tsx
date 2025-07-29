@@ -24,12 +24,17 @@ import {
 
 import { pages } from '@/config/pages';
 
-export const Sidebar: React.FC<{ children: ReactNode }> = ({ children }) => {
+type Props = {
+  children: ReactNode;
+  defaultOpen?: boolean;
+};
+
+export const Sidebar: React.FC<Props> = ({ children, defaultOpen = true }) => {
   const t = useTranslations();
   const router = useRouter();
 
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={defaultOpen}>
       <SidebarPrimitive collapsible='icon' className='group'>
         <SidebarHeader className='border-b border-sidebar-border p-4'>
           <div
