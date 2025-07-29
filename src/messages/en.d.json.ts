@@ -68,6 +68,11 @@ declare const messages: {
                 "title": "CSV/JSON Converter",
                 "description": "Convert between CSV and JSON formats easily",
                 "category": "converters"
+            },
+            "markdown": {
+                "title": "Markdown Converter",
+                "description": "Convert between Markdown and HTML in real-time",
+                "category": "converters"
             }
         },
         "visitTool": "Open Tool"
