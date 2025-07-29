@@ -38,6 +38,7 @@ export const pages: Page[] = [
   {
     key: 'pages.markdown',
     href: '/markdown',
+    category: 'converters',
   },
 ];
 
