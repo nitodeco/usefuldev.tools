@@ -7,9 +7,9 @@ import { useTranslations } from 'next-intl';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Switch } from '@/components/ui/switch';
 
 import { Button } from '@/components/atoms/Button';
+import { Switch } from '@/components/atoms/Switch';
 
 import { ConversionMode, ConversionOptions } from '../types';
 
@@ -36,9 +36,10 @@ export const CsvInputSection: React.FC<CsvInputSectionProps> = ({
 }) => {
   const t = useTranslations('csv');
 
-  const placeholder = mode === 'csv-to-json' 
-    ? 'name,age,city\nJohn,30,New York\nJane,25,London'
-    : '[\n  {"name": "John", "age": 30, "city": "New York"},\n  {"name": "Jane", "age": 25, "city": "London"}\n]';
+  const placeholder =
+    mode === 'csv-to-json'
+      ? 'name,age,city\nJohn,30,New York\nJane,25,London'
+      : '[\n  {"name": "John", "age": 30, "city": "New York"},\n  {"name": "Jane", "age": 25, "city": "London"}\n]';
 
   return (
     <Card>
@@ -106,11 +107,7 @@ export const CsvInputSection: React.FC<CsvInputSectionProps> = ({
             className='w-full h-64 p-4 font-mono text-sm rounded-md border bg-background resize-none focus:outline-none focus:ring-2 focus:ring-primary'
           />
         </div>
-        {error && (
-          <div className='p-3 rounded-md bg-destructive/10 text-destructive text-sm'>
-            {error}
-          </div>
-        )}
+        {error && <div className='p-3 rounded-md bg-destructive/10 text-destructive text-sm'>{error}</div>}
       </CardContent>
     </Card>
   );

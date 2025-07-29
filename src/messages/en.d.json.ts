@@ -25,6 +25,7 @@ declare const messages: {
         "regex": "Regex Tester",
         "jwt": "JWT Decoder",
         "hash": "Hash Generator",
+
         "csv": "CSV/JSON Converter",
         "base64": "Base64 Converter"
     },
@@ -61,6 +62,11 @@ declare const messages: {
             "base64": {
                 "title": "Base64 Converter",
                 "description": "Encode and decode text to/from Base64 format",
+                "category": "converters"
+            },
+            "csv": {
+                "title": "CSV/JSON Converter",
+                "description": "Convert between CSV and JSON formats easily",
                 "category": "converters"
             }
         },

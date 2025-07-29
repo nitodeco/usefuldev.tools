@@ -41,6 +41,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
+
     if (file) {
       if (file.size > maxSize) {
         return;
@@ -54,6 +55,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
     if (disabled) return;
 
     const file = event.dataTransfer.files?.[0];
+
     if (file) {
       if (file.size > maxSize) {
         return;
@@ -76,6 +78,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
     const k = 1_024; // 1KB
     const sizes = [t('fileSizes.bytes'), t('fileSizes.kb'), t('fileSizes.mb'), t('fileSizes.gb')];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
+
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   };
 

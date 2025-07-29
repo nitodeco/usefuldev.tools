@@ -33,6 +33,7 @@ export const useCsvOperations = () => {
 
         if (result.errors.length > 0) {
           setError(result.errors[0].message);
+
           return;
         }
 
@@ -69,6 +70,7 @@ export const useCsvOperations = () => {
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Invalid input format';
+
       setError(errorMessage);
     } finally {
       setIsConverting(false);
@@ -80,6 +82,7 @@ export const useCsvOperations = () => {
       const timer = setTimeout(() => {
         convert();
       }, 300);
+
       return () => clearTimeout(timer);
     } else {
       setOutputText('');
@@ -103,6 +106,7 @@ export const useCsvOperations = () => {
     const blob = new Blob([outputText], { type: mimeType });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
+
     link.href = url;
     link.download = fileName;
     document.body.appendChild(link);
