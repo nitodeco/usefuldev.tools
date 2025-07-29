@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
               href='https://github.com/nitodeco/usefuldev.tools'
               target='_blank'
               rel='noopener noreferrer'
-              className='flex items-center gap-1 text-sm text-muted-foreground/50 hover:text-muted-foreground transition-colors'
+              className='flex items-center gap-1 text-sm text-muted-foreground/50 hover:text-muted-foreground'
               title={t('github')}
             >
               <svg className='h-4 w-4' fill='currentColor' viewBox='0 0 24 24'>
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
               href='https://coff.ee/nitodeco'
               target='_blank'
               rel='noopener noreferrer'
-              className='flex items-center gap-1 text-sm text-muted-foreground/50 hover:text-muted-foreground transition-colors'
+              className='flex items-center gap-1 text-sm text-muted-foreground/50 hover:text-muted-foreground'
               title={t('coffee')}
             >
               <svg className='h-4 w-4' fill='currentColor' viewBox='0 0 24 24'>
