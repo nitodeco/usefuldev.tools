@@ -19,7 +19,8 @@ declare const messages: {
         "uuid": "UUID Generator",
         "regex": "Regex Tester",
         "jwt": "JWT Decoder",
-        "hash": "Hash Generator"
+        "hash": "Hash Generator",
+        "csv": "CSV/JSON Converter"
     },
     "themeToggle": {
         "toggleTheme": "Toggle Theme"
@@ -69,6 +70,25 @@ declare const messages: {
             "bcrypt": "bcrypt",
             "xxhash": "xxHash"
         }
+    },
+    "csv": {
+        "title": "CSV/JSON Converter",
+        "description": "Convert between CSV and JSON formats easily",
+        "mode": "Conversion Mode",
+        "csvToJson": "CSV to JSON",
+        "jsonToCsv": "JSON to CSV",
+        "input": "Input",
+        "output": "Output",
+        "convert": "Convert",
+        "clear": "Clear",
+        "copyOutput": "Copy Output",
+        "downloadFile": "Download File",
+        "uploadFile": "Drop a file here or click to upload",
+        "inputPlaceholder": "Paste your data here...",
+        "fileInfo": "File: {{fileName}} ({{fileSize}})",
+        "options": "Options",
+        "hasHeader": "First row is header",
+        "prettyPrint": "Pretty print JSON"
     }
 };
 export default messages;
