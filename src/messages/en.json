@@ -43,5 +43,22 @@
         "noTestString": "No test string provided",
         "matchingCharacters": "Matching characters",
         "nonMatchingCharacters": "Non-matching characters"
+    },
+    "hash": {
+        "title": "Hash Generator",
+        "description": "Generate hashes using various cryptographic algorithms",
+        "inputText": "Input Text",
+        "selectAlgorithm": "Select hash algorithm",
+        "inputPlaceholder": "Enter text to hash",
+        "generateHash": "Generate Hash",
+        "generating": "Generating...",
+        "result": "Hash Result",
+        "algorithms": {
+            "md5": "MD5",
+            "sha256": "SHA-256",
+            "sha512": "SHA-512",
+            "bcrypt": "bcrypt",
+            "xxhash": "xxHash"
+        }
     }
 }
