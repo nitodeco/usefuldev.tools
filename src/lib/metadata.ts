@@ -23,21 +23,6 @@ export const generatePageMetadata = ({ page }: Props = {}) => {
         },
         description,
         authors: [{ name: 'Nico Möhn' }],
-        openGraph: {
-          type: 'website',
-          url: siteUrl,
-          title,
-          description,
-          siteName,
-          images: [
-            {
-              url: `${siteUrl}/api/og?page=home`,
-              width: 1200,
-              height: 630,
-              alt: title,
-            },
-          ],
-        },
         alternates: {
           canonical: siteUrl,
         },
