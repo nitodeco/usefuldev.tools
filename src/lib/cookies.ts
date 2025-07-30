@@ -1,7 +1,5 @@
-export type CookieConsentStatus = 'pending' | 'accepted' | 'declined';
-
 export interface CookieConsentState {
-  status: CookieConsentStatus;
+  status: 'pending' | 'accepted' | 'declined';
   necessary: boolean;
   preferences: boolean;
   analytics: boolean;
