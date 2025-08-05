@@ -30,6 +30,7 @@ declare const messages: {
         "markdown": "Markdown Converter",
         "csv": "CSV/JSON Converter",
         "base64": "Base64 Converter",
+        "json": "JSON Validator",
         "privacy": "Privacy Policy"
     },
     "home": {
@@ -189,6 +190,22 @@ declare const messages: {
                 "decode": "Enter URL encoded text to decode"
             },
             "outputPlaceholder": "Result will appear here"
+        },
+        "json": {
+            "title": "JSON Validator",
+            "description": "Validate and format JSON",
+            "jsonInput": "JSON Input",
+            "validJson": "Valid",
+            "invalidJson": "Invalid",
+            "jsonPlaceholder": "Enter JSON to validate...",
+            "formattedOutput": "Formatted JSON",
+            "clearAll": "Clear All",
+            "formatJson": "Format",
+            "minifyJson": "Minify",
+            "copyFormatted": "Copy Formatted",
+            "prettifyOptions": "Formatting Options",
+            "indentSize": "Indent Size",
+            "sortKeys": "Sort Keys"
         }
     },
     "fileUpload": {

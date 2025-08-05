@@ -1,4 +1,5 @@
 import {
+  BracesIcon,
   CodeIcon,
   FingerprintIcon,
   HashIcon,
@@ -33,6 +34,13 @@ export const pages: Page[] = [
     href: '/regex',
     category: 'testing',
     icon: RegexIcon,
+    showInSidebar: true,
+  },
+  {
+    key: 'pages.json',
+    href: '/json',
+    category: 'testing',
+    icon: BracesIcon,
     showInSidebar: true,
   },
   {
