@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from 'react';
 
 import { useTranslations } from 'next-intl';
-import { v1 as uuidv1, v4 as uuidv4, v6 as uuidv6, v7 as uuidv7 } from 'uuid';
+import crypto from 'node:crypto';
+import { v1 as uuidv1, v6 as uuidv6, v7 as uuidv7 } from 'uuid';
 
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -28,13 +29,13 @@ export const UuidPage: React.FC = () => {
       case 'v1':
         return uuidv1();
       case 'v4':
-        return uuidv4();
+        return crypto.randomUUID();
       case 'v6':
         return uuidv6();
       case 'v7':
         return uuidv7();
       default:
-        return uuidv4();
+        return crypto.randomUUID();
     }
   };
 
