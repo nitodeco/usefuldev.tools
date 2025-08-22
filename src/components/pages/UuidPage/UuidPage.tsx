@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { useTranslations } from 'next-intl';
-import crypto from 'node:crypto';
 import { v1 as uuidv1, v6 as uuidv6, v7 as uuidv7 } from 'uuid';
 
 import { Badge } from '@/components/ui/badge';
