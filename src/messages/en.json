@@ -23,6 +23,7 @@
         "regex": "Regex Tester",
         "jwt": "JWT Decoder",
         "hash": "Hash Generator",
+        "color": "Color Converter",
         "urlEncoder": "URL Encoder/Decoder",
         "markdown": "Markdown Converter",
         "csv": "CSV/JSON Converter",
@@ -93,6 +94,49 @@
                 "sha512": "SHA-512",
                 "bcrypt": "bcrypt",
                 "xxhash": "xxHash"
+            }
+        },
+        "color": {
+            "title": "Color Converter",
+            "description": "Pick a color and convert between HEX, RGB(A), HSL, and OKLCH",
+            "model": {
+                "label": "Color space",
+                "placeholder": "Select color space",
+                "options": {
+                    "hsl": "HSL",
+                    "oklch": "OKLCH",
+                    "rgb": "RGB"
+                }
+            },
+            "direct": {
+                "title": "Enter values directly"
+            },
+            "channels": {
+                "hue": "Hue",
+                "saturation": "Saturation",
+                "lightness": "Lightness",
+                "luminance": "Luminance",
+                "chroma": "Chroma",
+                "red": "Red",
+                "green": "Green",
+                "blue": "Blue",
+                "alpha": "Alpha"
+            },
+            "inputs": {
+                "hex": "HEX input",
+                "apply": "Apply",
+                "paste": "Paste"
+            },
+            "outputs": {
+                "hex": "HEX",
+                "rgb": "RGB",
+                "rgba": "RGBA",
+                "hsl": "HSL",
+                "oklch": "OKLCH"
+            },
+            "preview": "Preview",
+            "warnings": {
+                "oklchClipped": "Selected OKLCH is outside sRGB gamut. Displayed color is clipped to the nearest sRGB value."
             }
         },
         "csv": {

@@ -16,7 +16,7 @@ export async function GET() {
 
     ## Available Tools
 
-    The application currently offers 7 main developer tools organized into 4 categories:
+    The application currently offers 8 main developer tools organized into 4 categories:
 
     ### Generators
     - **UUID Generator** (/uuid): Generate UUIDs (Universally Unique Identifiers) in different versions including Version 1 (Time-based), Version 4 (Random), Version 6 (Reordered time), and Version 7 (Unix timestamp)
@@ -32,6 +32,7 @@ export async function GET() {
     - **CSV/JSON Converter** (/csv): Convert between CSV and JSON formats with parsing and formatting capabilities
     - **Markdown Converter** (/markdown): Convert Markdown to HTML with live preview functionality
     - **URL Encoder/Decoder** (/url-encoder): Encode and decode URLs with support for various encoding types
+    - **Color Converter** (/color): Convert and inspect colors across HEX, RGB(A), HSL, and OKLCH. Includes a performant hue color wheel and space-aware sliders (HSL: Saturation/Lightness, OKLCH: Luminance/Chroma, RGB: R/G/B) with alpha control.
 
     ## Key Features
 

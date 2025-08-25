@@ -74,7 +74,6 @@ export const useBase64Operations = () => {
 
       reader.onload = () => {
         if (typeof reader.result === 'string') {
-          // Remove data URL prefix if present
           const base64 = reader.result.split(',')[1] || reader.result;
 
           resolve(base64);
@@ -100,7 +99,6 @@ export const useBase64Operations = () => {
   };
 
   const detectMimeType = (base64: string): string => {
-    // Try to detect common file types from base64 header
     const signatures: Record<string, string> = {
       '/9j/': 'image/jpeg',
       'iVBORw0KGgo': 'image/png',

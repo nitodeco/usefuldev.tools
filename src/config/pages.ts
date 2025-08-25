@@ -9,6 +9,7 @@ import {
   RegexIcon,
   ShieldIcon,
   Table2Icon,
+  PaletteIcon,
 } from 'lucide-react';
 
 export type FilterCategory = 'all' | 'cryptography' | 'generators' | 'testing' | 'converters';
@@ -76,6 +77,13 @@ export const pages: Page[] = [
     href: '/url-encoder',
     category: 'converters',
     icon: LinkIcon,
+    showInSidebar: true,
+  },
+  {
+    key: 'pages.color',
+    href: '/color',
+    category: 'converters',
+    icon: PaletteIcon,
     showInSidebar: true,
   },
   {
