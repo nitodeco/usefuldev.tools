@@ -23,8 +23,10 @@ Useful Dev Tools provides a comprehensive suite of developer utilities, all runn
 - **UUID Generator** - Generate UUIDs in multiple versions (v1, v4, v6, v7)
 - **Regex Tester** - Test regular expressions with real-time validation and character analysis
 - **CSV/JSON Converter** - Convert between CSV and JSON formats with customizable options
+- **JSON Formatter & Validator** - Validate, pretty-print, and minify JSON with configurable options
 - **Markdown Converter** - Convert between Markdown and HTML with live preview
 - **URL Encoder/Decoder** - Encode and decode URLs with component-level encoding options
+- **Color Converter** - Convert and compare colors across HSL, OKLCH, and RGB; copy HEX/RGB/RGBA/HSL/OKLCH with live preview and alpha support
 
 ## 🛠️ Tech Stack
 
